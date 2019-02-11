@@ -4,7 +4,7 @@ const IncidentItems = (state = [], action) => {
     console.log('in incidentItem');
     
     switch (action.type) {
-        case 'ADD_NEW_ITEM':
+        case 'ADD_NEW_VEHICLE':
         return action.payload
         default:
             return state;

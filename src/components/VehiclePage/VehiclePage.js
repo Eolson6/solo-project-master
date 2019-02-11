@@ -13,7 +13,7 @@ class VehiclePage extends Component {
 
     addNewVehicle = (event) =>{
         
-        const action ={ type: 'ADD_NEW_ITEM', payload: this.state};
+        const action ={ type: 'ADD_NEW_VEHICLE', payload: this.state};
         this.props.dispatch(action);
     }
 
