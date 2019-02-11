@@ -5,11 +5,26 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
 
 class VehiclePage extends Component {
 
+    addNewVehicle = (event) =>{
+        
+        const action ={ type: 'ADD_NEW_ITEM', payload: this.state};
+        this.props.dispatch(action);
+    }
+
+     styles = theme => ({
+        button: {
+            margin: theme.spacing.unit,
+        },
+        input: {
+            display: 'none',
+        },
+    });
 
     state = {
         make: '',
@@ -113,6 +128,10 @@ class VehiclePage extends Component {
                     onChange={this.handleChange('owner')}
                     margin="normal"
                 />
+
+                <Button onClick={this.addNewVehicle} variant="outlined" color="primary" className="button">
+                    Submit
+                    </Button>
                  </ form >
 
          
