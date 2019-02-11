@@ -13,7 +13,7 @@ CREATE TABLE "incident" (
 "notes" VARCHAR (50)
 );
 
-INSERT INTO incident (id, location, type, time, date, notes)
+INSERT INTO incident ("id", "location", "type", "time", "date", "notes")
 VALUES ('1', 'Edina', 'intersection', '2:30', '01-12-2019', '2 cars');
 
 CREATE TABLE "vehicle" (
@@ -54,3 +54,4 @@ CREATE TABLE "image" (
 
 INSERT INTO image("id", "incident.id", "image_path", "image_description")
 VALUES('1', '1', 'newpic.jpg', 'new car');
+ 
