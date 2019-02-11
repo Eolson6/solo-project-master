@@ -52,8 +52,36 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute
               exact
-              path="/info"
-              component={InfoPage}
+              path="/vehicle"
+              component={VehiclePage}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/witness"
+              component={WitnessPage}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/newIncident"
+              component={NewIncidentPage}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/image"
+              component={ImagePage}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/review"
+              component={ReviewPage}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
