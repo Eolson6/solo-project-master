@@ -16,6 +16,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import VehiclePage from '../VehiclePage/VehiclePage';
+import NewIncidentPage from '../NewIncidentPage/NewIncidentPage';
+import ImagePage from '../ImagePage/ImagePage';
+import WitnessPage from '../WitnessPage/WitnessPage';
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 import './App.css';
 
