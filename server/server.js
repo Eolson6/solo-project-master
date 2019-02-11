@@ -32,8 +32,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/image', imageRouter);
 app.use('/api/newIncident', newIncidentRouter);
-app.use('./api/review', reviewRouter);
-app.use('./api/vehicle', vehicleRouter);
+app.use('/api/review', reviewRouter);
+app.use('/api/vehicle', vehicleRouter);
 app.use('/api/witness', witnessRouter);
 
 // Serve static files
