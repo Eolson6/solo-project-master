@@ -7,6 +7,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
+import DisplayWitnesses from '../DisplayImages/DisplayImages';
+import DisplayImages from '../DisplayImages/DisplayImages';
+import DisplayVehicless from '../DisplayVehicles/DisplayVehicles';
 
 
 class NewIncidentPage extends Component {
@@ -17,42 +20,9 @@ class NewIncidentPage extends Component {
         // const { classes } = props;
         return (
             <div>
-                <TextField
-                    id="vechicle"
-                    label="vehicle"
-                    defaultValue="No Vehicles Added"
-                    className="textField"
-                    margin="normal"
-                    InputProps={{
-                        readOnly: true,
-                    }}
-                    variant="outlined"
-                />
-                <TextField
-                    id="witness"
-                    label="witness"
-                    defaultValue="No Witnesses Added"
-                    className="textField"
-                    margin="normal"
-                    InputProps={{
-                        readOnly: true,
-                    }}
-                    variant="outlined"
-                />
-                <TextField
-                    id="image"
-                    label="image"
-                    defaultValue="No Images Added"
-                    className="textField"
-                    margin="normal"
-                    InputProps={{
-                        readOnly: true,
-                    }}
-                    variant="outlined"
-                />
-                <Button variant="contained" color="secondary" className="button">
-                    Secondary
-      </Button>
+                <DisplayImages/>
+                <DisplayVehicless/>
+                <DisplayWitnesses/>
             </div>
 
         );
