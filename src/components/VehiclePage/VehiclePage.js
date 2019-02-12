@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import NumberFormat from 'react-number-format';
 
 
 
@@ -89,42 +90,42 @@ class VehiclePage extends Component {
             <TextField
                 id="make"
                 label="Make"
-                value={this.state.name}
+                value={this.state.value}
                 onChange={this.handleChange('make')}
                 margin="normal"
             />
                 <TextField
                     id="year"
                     label="Year"
-                    value={this.state.name}
+                    value={this.state.value}
                     onChange={this.handleChange('year')}
                     margin="normal"
                 />
                 <TextField
                     id="model"
                     label="Model"
-                    value={this.state.name}
+                    value={this.state.value}
                     onChange={this.handleChange('model')}
                     margin="normal"
                 />
                 <TextField
                     id="license"
                     label="License Plate"
-                    value={this.state.name}
+                    value={this.state.value}
                     onChange={this.handleChange('license')}
                     margin="normal"
                 />
                 <TextField
                     id="vin"
                     label="VIN"
-                    value={this.state.name}
+                    value={this.state.value}
                     onChange={this.handleChange('vin')}
                     margin="normal"
                 />
                 <TextField
                     id="owner"
                     label="Owner"
-                    value={this.state.name}
+                    value={this.state.value}
                     onChange={this.handleChange('owner')}
                     margin="normal"
                 />

@@ -21,6 +21,7 @@ classnames
 prop-types
 react
 react-dom
+npm install react-number-format --save
 
 ## Create database and table
 
