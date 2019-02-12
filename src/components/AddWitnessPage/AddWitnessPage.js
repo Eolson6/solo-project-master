@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
 
 
-class WitnessPage extends Component {
+class AddWitnessPage extends Component {
 
     addNewWitness = (event) => {
 
@@ -164,4 +164,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps)(WitnessPage );
+export default connect(mapStateToProps)(AddWitnessPage );

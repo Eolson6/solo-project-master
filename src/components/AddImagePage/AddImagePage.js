@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
 
 
-class ImagePage extends Component {
+class AddImagePage extends Component {
 
     addNewImage = (event) => {
 
@@ -75,4 +75,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps)(ImagePage);
+export default connect(mapStateToProps)(AddImagePage);

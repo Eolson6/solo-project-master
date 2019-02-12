@@ -10,7 +10,7 @@ import NumberFormat from 'react-number-format';
 
 
 
-class VehiclePage extends Component {
+class AddvehiclePage extends Component {
 
     addNewVehicle = (event) =>{
         
@@ -149,4 +149,4 @@ const mapStateToProps = state => ({
   
 });
 
-export default connect(mapStateToProps)(VehiclePage);
+export default connect(mapStateToProps)(AddVehiclePage);
