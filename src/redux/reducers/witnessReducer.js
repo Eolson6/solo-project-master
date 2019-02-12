@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
 
-const IncidentItems = (state = [], action) => {
+const witnessReducer = (state = [], action) => {
     console.log('in incidentItem');
-    
+
     switch (action.type) {
-        case 'ADD_NEW_VEHICLE':
-        return action.payload
+        case 'ADD_NEW_WITNESS':
+            return action.payload;
         default:
             return state;
     }
 };
 
 export default combineReducers({
-    IncidentItems,
+    witnessReducer,
 });
