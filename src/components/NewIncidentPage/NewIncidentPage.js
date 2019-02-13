@@ -10,6 +10,9 @@ import NumberFormat from 'react-number-format';
 import DisplayWitnesses from '../DisplayImages/DisplayImages';
 import DisplayImages from '../DisplayImages/DisplayImages';
 import DisplayVehicless from '../DisplayVehicles/DisplayVehicles';
+import DisplayVehicles from '../DisplayVehicles/DisplayVehicles';
+import { Route, withRouter } from 'react-router-dom';
+
 
 
 class NewIncidentPage extends Component {
@@ -22,12 +25,17 @@ getincidentItems=()=>{
     const action ={type: 'GET_INCIDENT_ITEMS'};
     this.props.dispatch(action);
 }
+
+    addNewVehicle = (event) => {
+        this.props.history.push('vehicle');
+    }
+
     render() {
         // const { classes } = props;
         return (
             <div>
-                <DisplayImages/>
-                <DisplayVehicless/>
+                <DisplayImages />
+                <DisplayVehicless addNewVehicle={this.addNewVehicle}/>
                 <DisplayWitnesses/>
             </div>
 

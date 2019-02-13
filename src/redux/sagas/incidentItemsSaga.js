@@ -7,8 +7,7 @@ function* addVehicle(action){
         console.log('axios', action);
         
         yield axios.post('/api/vehicle', action.payload);
-        const nextAction = {type:'ADD_VEHICLE_REDUCER'};
-        yield put(nextAction);
+        
     } catch (error) {
         console.log('error in vehicle saga', error);
         alert('error', error)
@@ -46,11 +45,11 @@ function* addImage(action) {
 
 
 
-function* incidentItemsSaga() {
+function* postIncidentItemsSaga() {
     yield takeLatest('ADD_NEW_VEHICLE', addVehicle);
     yield takeLatest('ADD_NEW_WITNESS',  addWitness);
     yield takeLatest('ADD_NEW_IMAGE',  addImage);
 
 }
 
-export default incidentItemsSaga;
+export default postIncidentItemsSaga;

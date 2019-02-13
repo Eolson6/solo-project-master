@@ -102,6 +102,7 @@ class AddVehiclePage extends Component {
                     id="year"
                     label="Year"
                     value={this.state.value}
+                    // value="2015"
                     onChange={this.handleChange('year')}
                     margin="normal"
                 />
@@ -109,6 +110,7 @@ class AddVehiclePage extends Component {
                 id="make"
                 label="Make"
                 value={this.state.value}
+                // value="ford"
                 onChange={this.handleChange('make')}
                 margin="normal"
             />
@@ -116,6 +118,7 @@ class AddVehiclePage extends Component {
                     id="model"
                     label="Model"
                     value={this.state.value}
+                    // value="explorer"
                     onChange={this.handleChange('model')}
                     margin="normal"
                 />
@@ -123,6 +126,7 @@ class AddVehiclePage extends Component {
                     id="license"
                     label="License Plate"
                     value={this.state.value}
+                    // value="390338"
                     onChange={this.handleChange('license')}
                     margin="normal"
                 />
@@ -130,6 +134,7 @@ class AddVehiclePage extends Component {
                     id="vin"
                     label="VIN"
                     value={this.state.value}
+                    // value="293438"
                     onChange={this.handleChange('vin')}
                     margin="normal"
                 />
@@ -137,6 +142,7 @@ class AddVehiclePage extends Component {
                     id="owner"
                     label="Owner"
                     value={this.state.value}
+                    // value="Tim Tebow"
                     onChange={this.handleChange('owner')}
                     margin="normal"
                 />

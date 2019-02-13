@@ -6,7 +6,13 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-
+    const queryText = `SELECT * FROM vehicle;`;
+    pool.query(queryText)
+    .then((result) => {
+        console.log('in vehicle get', result);
+        
+        res.send(result.rows);
+    });
 
 });
 

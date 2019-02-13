@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
+import axios from "axios"; 
+
 
 
 class DisplayVehicles extends Component {
@@ -22,20 +24,37 @@ secondary = green[500]; // #4caf50
         this.getVehicles();
     }
 
-    getVehicles = ()=>{
+    getVehicles = () => {
         const action = {type: 'GET_VEHICLES'};
         this.props.dispatch(action);
+        console.log('action', action);
+        
+    }
+
+    addNewVehicle = (event)=>{
+        this.props.history.push('vehicle');
     }
 
 
     render() {
-        // const { classes } = props;
+        
         return (
             <div>
-                JSON.stringify({this.props.reduxStore.vehicleReducer.make})
+                
+                {/* {JSON.stringify(this.props.reduxStore.vehicleReducer.owner)} */}
+                {/* <h1>{this.props.reduxStore.vehicleReducer}</h1> */}
+        
+            
+                    {this.props.reduxStore.vehicleReducer.vehicleReducer.map((vehicle, i) => {
+                        return (<tr>key = {i}
+                            <td>{vehicle.owner}</td>
+                        </tr>
+                        )
+                    })}
+                
                 <TextField
-                    id="vechicle"
-                    label="vehicle"
+                   id="vechicle"
+                   label="vehicle"
                     defaultValue="No Vehicles Added"
                     className="textField"
                     margin="normal"
@@ -45,7 +64,7 @@ secondary = green[500]; // #4caf50
                     variant="outlined"
                 />
                 
-                <Button variant="contained" color="secondary" className="button">
+                <Button onClick={this.addNewVehicle} variant="contained" color="secondary" className="button">
                     Add Vehicle
       </Button>
       

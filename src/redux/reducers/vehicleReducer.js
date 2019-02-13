@@ -1,8 +1,8 @@
 
 import { combineReducers } from 'redux';
 
-const vehicleReducer = (state = {}, action) => {
-    console.log('in vehicle reducer', action);
+const vehicleReducer = (state = [], action) => {
+    console.log('in vehicle reducer', action.payload);
 
     switch (action.type) {
         
@@ -16,4 +16,4 @@ const vehicleReducer = (state = {}, action) => {
 export default combineReducers({
     vehicleReducer,
 });
-// export default vehicleReducer;
+

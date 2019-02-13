@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
   vehicleReducer, // this will have vehicles added by the user
   witnessReducer, // this will have witnesses added by the user
   imageReduer, //this will have images added/uploaded by the user
+  
 });
 
 export default rootReducer;
