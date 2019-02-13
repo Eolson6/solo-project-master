@@ -41,21 +41,32 @@ secondary = green[500]; // #4caf50
         return (
             <div>
                 
-                {/* {JSON.stringify(this.props.reduxStore.vehicleReducer.owner)} */}
+                {/* {JSON.stringify(this.props.reduxStore.vehicleReducer.vehicleReducer.items)} */}
                 {/* <h1>{this.props.reduxStore.vehicleReducer}</h1> */}
         
             
                     {this.props.reduxStore.vehicleReducer.vehicleReducer.map((vehicle, i) => {
-                        return (<tr>key = {i}
-                            <td>{vehicle.owner}</td>
+                        return (<tr>
+                            {/* <td>{vehicle.owner}</td> */}
+                            <TextField
+                                id="vechicle"
+                                label="vehicle"
+                                defaultValue={vehicle.owner}
+                                className="textField"
+                                margin="normal"
+                                InputProps={{
+                                    readOnly: true,
+                                }}
+                                variant="outlined"
+                            />
                         </tr>
                         )
                     })}
                 
-                <TextField
+                {/* <TextField
                    id="vechicle"
                    label="vehicle"
-                    defaultValue="No Vehicles Added"
+                    // defaultValue="No Vehicles Added"
                     className="textField"
                     margin="normal"
                     InputProps={{
@@ -63,7 +74,7 @@ secondary = green[500]; // #4caf50
                     }}
                     variant="outlined"
                 />
-                
+                 */}
                 <Button onClick={this.addNewVehicle} variant="contained" color="secondary" className="button">
                     Add Vehicle
       </Button>
