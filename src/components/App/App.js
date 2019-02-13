@@ -16,11 +16,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-import VehiclePage from '../VehiclePage/VehiclePage';
+import AddVehiclePage from '../AddVehiclePage/AddVehiclePage';
 import NewIncidentPage from '../NewIncidentPage/NewIncidentPage';
-import ImagePage from '../ImagePage/ImagePage';
-import WitnessPage from '../WitnessPage/WitnessPage';
+import AddImagePage from '../AddImagePage/AddImagePage';
+import AddWitnessPage from '../AddWitnessPage/AddWitnessPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
+import DisplayImages from '../DisplayImages/DisplayImages';
+import DisplayVehicles from '../DisplayVehicles/DisplayVehicles';
+import DisplayWitnesses from '../DisplayWitnesses/DisplayWitnesses';
 
 import './App.css';
 
@@ -58,14 +61,14 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/vehicle"
-              component={VehiclePage}
+              component={AddVehiclePage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute
               exact
               path="/witness"
-              component={WitnessPage}
+              component={AddWitnessPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
@@ -77,9 +80,9 @@ class App extends Component {
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute
-              exact
+              exact 
               path="/image"
-              component={ImagePage}
+              component={AddImagePage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

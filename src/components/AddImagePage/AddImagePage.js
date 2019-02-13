@@ -33,7 +33,7 @@ class AddImagePage extends Component {
     };
 
     handleChange = name => event => {
-        console.log('name', this.state);
+        // console.log('name', this.state);
 
         this.setState({
             [name]: event.target.value

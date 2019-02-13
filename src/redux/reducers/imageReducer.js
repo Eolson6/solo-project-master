@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-const imageReducer = (state = [], action) => {
+const imageReducer = (state = {}, action) => {
     console.log('in incidentItem');
 
     switch (action.type) {
-        case 'ADD_NEW_IMAGE':
+        case 'ADD_IMAGE_REDUCER':
             return action.payload;
         default:
             return state;

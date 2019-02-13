@@ -38,7 +38,7 @@ class AddWitnessPage extends Component {
     };
 
     handleChange = name => event => {
-        console.log('name', this.state);
+        // console.log('name', this.state);
 
         this.setState({
             [name]: event.target.value
@@ -46,7 +46,7 @@ class AddWitnessPage extends Component {
     };
 
     handleChange = phone => event => {
-        console.log('phone', this.state);
+        // console.log('phone', this.state);
 
         this.setState({
             [phone]: event.target.value
@@ -54,7 +54,7 @@ class AddWitnessPage extends Component {
     };
 
     handleChange = street => event => {
-        console.log('street', this.state);
+        // console.log('street', this.state);
 
         this.setState({
             [street]: event.target.value
@@ -62,7 +62,7 @@ class AddWitnessPage extends Component {
     };
 
     handleChange = unit => event => {
-        console.log('unit', this.state);
+        // console.log('unit', this.state);
 
         this.setState({
             [unit]: event.target.value
@@ -70,14 +70,14 @@ class AddWitnessPage extends Component {
     };
 
     handleChange = city => event => {
-        console.log('city', this.state);
+        // console.log('city', this.state);
 
         this.setState({
             [city]: event.target.value
         });
     };
     handleChange = state => event => {
-        console.log('state', this.state);
+        // console.log('state', this.state);
 
         this.setState({
             [state]: event.target.value
@@ -85,7 +85,7 @@ class AddWitnessPage extends Component {
     };
 
     handleChange = zip => event => {
-        console.log('zip', this.state);
+        // console.log('zip', this.state);
 
         this.setState({
             [zip]: event.target.value

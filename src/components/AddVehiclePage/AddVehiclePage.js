@@ -7,15 +7,26 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
+import { timingSafeEqual } from 'crypto';
 
 
 
-class AddvehiclePage extends Component {
+class AddVehiclePage extends Component {
 
-    addNewVehicle = (event) =>{
+    addNewVehicle = () =>{
+        const newVehicle = {
+            make: this.state.make,
+            year: this.state.year,
+            model: this.state.model,
+            license: this.state.license,
+            vin: this.state.vin,
+            owner: this.state.owner
+        }
+        const action = { type: 'ADD_NEW_VEHICLE', payload: newVehicle};
+        console.log('in add vehicle page', newVehicle);
         
-        const action ={ type: 'ADD_NEW_VEHICLE', payload: this.state};
         this.props.dispatch(action);
+
     }
 
      styles = theme => ({
@@ -38,7 +49,7 @@ class AddvehiclePage extends Component {
     };
 
     handleChange = make => event => {
-        console.log('make', this.state);
+        // console.log('make', this.state);
         
         this.setState({ 
             [make]: event.target.value
@@ -46,7 +57,7 @@ class AddvehiclePage extends Component {
     };
 
     handleChange = year => event => {
-        console.log('year', this.state);
+        // console.log('year', this.state);
 
         this.setState({
             [year]: event.target.value
@@ -54,7 +65,7 @@ class AddvehiclePage extends Component {
     };
 
     handleChange = model => event => {
-        console.log('model', this.state);
+        // console.log('model', this.state);
 
         this.setState({
             [model]: event.target.value
@@ -62,7 +73,7 @@ class AddvehiclePage extends Component {
     };
 
     handleChange = license => event => {
-        console.log('license', this.state);
+        // console.log('license', this.state);
 
         this.setState({
             [license]: event.target.value
@@ -70,14 +81,14 @@ class AddvehiclePage extends Component {
     };
 
     handleChange = vin => event => {
-        console.log('vin', this.state);
+        // console.log('vin', this.state);
 
         this.setState({
             [vin]: event.target.value
         });
     };
     handleChange = owner => event => {
-        console.log('owner', this.state);
+        // console.log('owner', this.state);
 
         this.setState({
             [owner]: event.target.value
@@ -87,13 +98,6 @@ class AddvehiclePage extends Component {
         const { classes } = this.props;
         return (
             <form className="text" noValidate autoComplete="off">
-            <TextField
-                id="make"
-                label="Make"
-                value={this.state.value}
-                onChange={this.handleChange('make')}
-                margin="normal"
-            />
                 <TextField
                     id="year"
                     label="Year"
@@ -101,6 +105,13 @@ class AddvehiclePage extends Component {
                     onChange={this.handleChange('year')}
                     margin="normal"
                 />
+            <TextField
+                id="make"
+                label="Make"
+                value={this.state.value}
+                onChange={this.handleChange('make')}
+                margin="normal"
+            />
                 <TextField
                     id="model"
                     label="Model"

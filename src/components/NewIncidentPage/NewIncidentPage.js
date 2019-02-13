@@ -14,8 +14,14 @@ import DisplayVehicless from '../DisplayVehicles/DisplayVehicles';
 
 class NewIncidentPage extends Component {
 
+componentDidMount() {
+    this.getincidentItems();
+}
 
-
+getincidentItems=()=>{
+    const action ={type: 'GET_INCIDENT_ITEMS'};
+    this.props.dispatch(action);
+}
     render() {
         // const { classes } = props;
         return (

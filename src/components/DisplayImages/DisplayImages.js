@@ -9,7 +9,12 @@ import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
 
 
+
 class DisplayImages extends Component {
+
+    addNewImage = (event) => {
+       
+    }
 
 
 
@@ -29,8 +34,8 @@ class DisplayImages extends Component {
                     }}
                     variant="outlined"
                 />
-                <Button variant="contained" color="secondary" className="button">
-                    Secondary
+                <Button onClick={this.addNewImage} variant="contained" color="secondary" className="button">
+                    Add Image
       </Button>
             </div>
 

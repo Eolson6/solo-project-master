@@ -32,7 +32,7 @@ class DisplayWitnesses extends Component {
                 />
       
                 <Button variant="contained" color="secondary" className="button">
-                    Secondary
+                    Add Witness
       </Button>
             </div>
 
