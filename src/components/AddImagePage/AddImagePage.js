@@ -12,8 +12,11 @@ import NumberFormat from 'react-number-format';
 class AddImagePage extends Component {
 
     addNewImage = (event) => {
-
-        const action = { type: 'ADD_NEW_IMAGE', payload: this.state };
+        const newImage = {
+            image_path: this.state.image_path,
+            image_description: this.state.image_description
+        }
+        const action = { type: 'ADD_NEW_IMAGE', payload: newImage };
         this.props.dispatch(action);
     }
 
@@ -27,18 +30,27 @@ class AddImagePage extends Component {
     });
 
     state = {
-        incident_id: '',
+       
         image_path: '',
-        description: ''
+        image_description: ''
     };
 
-    handleChange = name => event => {
+    handleChange = image_path => event => {
         // console.log('name', this.state);
 
         this.setState({
-            [name]: event.target.value
+            [image_path]: event.target.value
         });
     };
+
+    handleChange = image_description => event => {
+        // console.log('name', this.state);
+
+        this.setState({
+            [image_description]: event.target.value
+        });
+    };
+
 
 
     render() {
@@ -47,23 +59,23 @@ class AddImagePage extends Component {
             <form className="text" noValidate autoComplete="off">
                       <TextField
                     id="image_path"
-                    label="image_path"
+                    label="Image Path"
                     value={this.state.value}
                     onChange={this.handleChange('image_path')}
                     margin="normal"
                 />
                 <TextField
-                    id="description"
-                    label="description"
+                    id="image_description"
+                    label="Image Description"
                     value={this.state.value}
-                    onChange={this.handleChange('description')}
+                    onChange={this.handleChange('image_description')}
                     margin="normal"
                 />
-                <div>
+                
                     <Button onClick={this.addNewImage} variant="outlined" color="primary" className="button">
                         Submit
                     </Button>
-                </div>
+                
 
             </ form >
 

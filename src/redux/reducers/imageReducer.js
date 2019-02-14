@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const imageReducer = (state = {}, action) => {
+const imageReducer = (state = [], action) => {
     console.log('in incidentItem');
 
     switch (action.type) {

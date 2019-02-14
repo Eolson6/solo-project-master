@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
             .then((response) => {
                 res.sendStatus(201);
             }).catch((error) => {
-                console.log(`error in post ${error}`);
+                console.log(`error in vehicle post ${error}`);
                 res.sendStatus(500)
             });
 });

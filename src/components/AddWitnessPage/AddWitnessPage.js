@@ -12,7 +12,7 @@ import NumberFormat from 'react-number-format';
 class AddWitnessPage extends Component {
 
     addNewWitness = (event) => {
-
+        
         const action = { type: 'ADD_NEW_WITNESS', payload: this.state };
         this.props.dispatch(action);
     }

@@ -18,10 +18,6 @@ function* addVehicle(action){
 function* addWitness(action) {
     try {
         yield axios.post('/api/witness', action.payload)
-        
-        
-        const action = { type: 'ADD_WITNESS_REDUCER' };
-        yield put(action);
     } catch (error) {
         console.log('error in witness saga', error);
         alert('error', error)
@@ -30,12 +26,10 @@ function* addWitness(action) {
 }
 
 function* addImage(action) {
-    console.log();
+    console.log('in addImage saga', action);
     
     try {
         yield axios.post('/api/image', action.payload)
-        const action = { type: 'ADD_IMAGE_REDUCER' };
-        yield put(action);
     } catch (error) {
         console.log('error in image saga', error);
         alert('error', error)
