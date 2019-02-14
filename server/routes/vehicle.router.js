@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     const queryText = `SELECT * FROM vehicle;`;
     pool.query(queryText)
     .then((result) => {
-        console.log('in vehicle get', result);
+        console.log('in vehicle get router', result);
         
         res.send(result.rows);
     });

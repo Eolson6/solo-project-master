@@ -6,8 +6,12 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-
-
+    const queryText = `SELECT * FROM witnesses;`;
+    pool.query(queryText)  
+  .then((result)=>{
+      console.log('in witnesses get router', result);
+      res.send(result.rows);
+  });
 });
 
 /**
@@ -24,7 +28,7 @@ console.log('in witness post', newWitness);
     .then((response)=>{
         res.sendStatus(201);
     }).catch((error)=>{
-        console.log('error in image post', error);
+        console.log('error in witness router post', error);
         res.sendStatus(500)
     })
 });

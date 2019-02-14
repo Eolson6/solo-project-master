@@ -12,8 +12,15 @@ import NumberFormat from 'react-number-format';
 
 class DisplayImages extends Component {
 
-    addNewImage = (event) => {
-       
+    componentDidMount() {
+        this.getImages();
+    }
+
+    getImages = () => {
+        const action = { type: 'GET_IMAGES' };
+        this.props.dispatch(action);
+        console.log('action', action);
+
     }
 
 
@@ -22,11 +29,12 @@ class DisplayImages extends Component {
         // const { classes } = props;
         return (
             <div>
-          
+                {this.props.reduxStore.imageReducer.imageReducer.map((image, i) =>{
+                    return (<tr>
                 <TextField
                     id="image"
                     label="image"
-                    defaultValue="No Images Added"
+                    defaultValue={image.image_description}
                     className="textField"
                     margin="normal"
                     InputProps={{
@@ -34,6 +42,9 @@ class DisplayImages extends Component {
                     }}
                     variant="outlined"
                 />
+                    </tr>
+                    )
+                })}
                 <Button onClick={this.addNewImage} variant="contained" color="secondary" className="button">
                     Add Image
       </Button>
@@ -43,8 +54,7 @@ class DisplayImages extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = (reduxStore) => ({
+    reduxStore
 });
-
 export default connect(mapStateToProps)(DisplayImages);

@@ -12,24 +12,42 @@ import NumberFormat from 'react-number-format';
 
 class DisplayWitnesses extends Component {
 
+    componentDidMount() {
+        this.getWitnesses();
+    }
+
+    getWitnesses = () => {
+        const action = { type: 'GET_WITNESSES' };
+        this.props.dispatch(action);
+        console.log('action', action);
+
+    }
 
 
     render() {
         // const { classes } = props;
         return (
             <div>
+                {this.props.reduxStore.witnessReducer.witnessReducer.map((witness,i)=>{
+                            return (<tr>
+                                <TextField
+                                    id="witness"
+                                    label="witness"
+                                    defaultValue={witness.name}
+                                    className="textField"
+                                    margin="normal"
+                                    InputProps={{
+                                        readOnly: true,
+                                    }}
+                                    variant="outlined"
+                                />
+
+                            </tr>
+                            )
+                                })}
+            }
               
-                <TextField
-                    id="witness"
-                    label="witness"
-                    defaultValue="No Witnesses Added"
-                    className="textField"
-                    margin="normal"
-                    InputProps={{
-                        readOnly: true,
-                    }}
-                    variant="outlined"
-                />
+              
       
                 <Button variant="contained" color="secondary" className="button">
                     Add Witness
@@ -40,8 +58,8 @@ class DisplayWitnesses extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = (reduxStore) => ({
+    reduxStore
 });
 
 export default connect(mapStateToProps)(DisplayWitnesses);
