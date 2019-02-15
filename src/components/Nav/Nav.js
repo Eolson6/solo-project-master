@@ -34,6 +34,9 @@ const Nav = (props) => (
           <Link className="nav-link" to="/image">
             Image Page
           </Link>
+          <Link className="nav-link" to="/facts">
+            Facts Page
+          </Link>
           <Link className="nav-link" to="/review">
             Review Page
           </Link>

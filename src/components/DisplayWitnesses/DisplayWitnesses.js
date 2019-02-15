@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
 
 
+
 class DisplayWitnesses extends Component {
 
     componentDidMount() {
@@ -20,8 +21,27 @@ class DisplayWitnesses extends Component {
         const action = { type: 'GET_WITNESSES' };
         this.props.dispatch(action);
         console.log('action', action);
+        
 
     }
+    deleteWitness = (event) => {
+        console.log('in delete image', event.target.value);
+        this.setState({
+            id: event.target.value
+        });
+        const action = { type: 'DELETE_WITNESS', payload: event.target.value }
+        this.props.dispatch(action)
+        window.location.reload()
+    };
+
+    //talks to saga with action type- gets info from reducer
+    // handleDeleteID = (event) => {
+    //     console.log('handleDeletewitness', { id: event.target.value });
+    //     this.setState({
+    //         id: event.target.value
+    //     });
+    // }
+
 
 
     render() {
@@ -40,16 +60,19 @@ class DisplayWitnesses extends Component {
                                         readOnly: true,
                                     }}
                                     variant="outlined"
+                                    
                                 />
-
+                                <Button onClick={this.deleteWitness} value={witness.id} variant="contained" color="secondary" >
+                                    Delete Witness
+                                        </Button>
                             </tr>
                             )
                                 })}
-            }
+        
               
               
       
-                <Button variant="contained" color="secondary" className="button">
+                <Button variant="contained" color="secondary" className="button" Link to="/witness">
                     Add Witness
       </Button>
             </div>

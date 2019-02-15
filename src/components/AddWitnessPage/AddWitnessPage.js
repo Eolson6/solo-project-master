@@ -15,6 +15,7 @@ class AddWitnessPage extends Component {
         
         const action = { type: 'ADD_NEW_WITNESS', payload: this.state };
         this.props.dispatch(action);
+        this.props.history.push('newIncident')
     }
 
     styles = theme => ({
@@ -148,7 +149,7 @@ class AddWitnessPage extends Component {
                     margin="normal"
                 />
                 <div>
-                    <Button onClick={this.addNewWitness} variant="outlined" color="primary" className="button">
+                    <Button onClick={this.addNewWitness} variant="outlined" color="primary" className="button" Link to="/newIncident">
                         Submit
                     </Button>
                 </div>

@@ -5,6 +5,7 @@ import user from './userReducer';
 import vehicleReducer from './vehicleReducer';
 import witnessReducer from './witnessReducer';
 import imageReducer from './imageReducer';
+import factReducer from './FactsReducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   vehicleReducer, // this will have vehicles added by the user
   witnessReducer, // this will have witnesses added by the user
   imageReducer, //this will have images added/uploaded by the user
+  factReducer,
   
 });
 

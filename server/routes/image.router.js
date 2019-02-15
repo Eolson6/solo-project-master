@@ -32,4 +32,20 @@ const queryText = `INSERT INTO image("incident_id", "image_path", "image_descrip
 })
 });
 
+router.delete('/:id', (req, res) => {
+    const id = [req.params.id];
+    console.log('in delete image router', id);
+
+    const queryText = `DELETE FROM "image"
+                    WHERE id= $1`;
+    pool.query(queryText, id)
+        .then((response) => { res.sendStatus(200); })
+        .catch((error) => {
+            console.log('error in delete image', error);
+            res.sendStatus(500);
+        });
+
+});
+
+
 module.exports = router;

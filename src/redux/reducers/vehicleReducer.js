@@ -6,7 +6,7 @@ const vehicleReducer = (state = [], action) => {
 
     switch (action.type) {
         
-        case 'ADD_VEHICLE_REDUCER':
+        case 'VEHICLE_REDUCER':
             return action.payload;
         default:
             return state;

@@ -18,7 +18,7 @@ import {
 
 
 
-class DisplayImages extends Component {
+class DisplayFacts extends Component {
 
     constructor(props) {
         super(props);
@@ -29,28 +29,27 @@ class DisplayImages extends Component {
 
 
     componentDidMount() {
-        this.getImages();
+        this.getFacts();
 
     }
 
-    getImages = () => {
-        const action = { type: 'GET_IMAGES' };
+    getFacts = () => {
+        const action = { type: 'GET_FACTS' };
         this.props.dispatch(action);
         console.log('action', action);
 
 
-
     }
 
-    deleteImage = (event) => {
-        console.log('in delete', this.props.image);
+    deleteFacts = (event) => {
+        console.log('in delete', this.props.facts);
         this.setState({
             id: event.target.value
 
         });
-        const action = { type: 'DELETE_IMAGE', payload: event.target.value }
+        const action = { type: 'DELETE_FACT', payload: event.target.value }
         this.props.dispatch(action)
-        // window.location.reload()
+        window.location.reload()
     }
 
     // //talks to saga with action type- gets info from reducer
@@ -62,23 +61,17 @@ class DisplayImages extends Component {
     // }
 
 
-    goToAddNewImage = () => {
-        this.props.history.push('/image');
-    }
-
-
 
     render() {
         // const { classes } = props;
-        { JSON.stringify(this.props) }
         return (
             <div>
-                {this.props.reduxStore.imageReducer.imageReducer.map((image, i) => {
+                {this.props.reduxStore.factReducer.factReducer.map((fact, i) => {
                     return (<tr key={i}>
                         <TextField
-                            id="image"
-                            label="image"
-                            defaultValue={image.image_description}
+                            id="Facts"
+                            label="Facts"
+                            defaultValue={fact.location}
                             className="textField"
                             margin="normal"
                             InputProps={{
@@ -86,15 +79,15 @@ class DisplayImages extends Component {
                             }}
                             variant="outlined"
                         />
-                        <Button onClick={this.deleteImage} value={image.id} variant="contained" color="secondary" className="button" >
-                            Delete Images
+                        <Button onClick={this.deleteFacts} value={fact.id} variant="contained" color="secondary" className="button" >
+                            Delete Facts
                                         </Button>
                     </tr>
                     )
                 })}
-                <Button onClick={this.goToAddNewImage} variant="contained" color="secondary" className="button" Link to="/image">
-                    Add Image
-                </Button>
+                <Button onClick={this.redirectAddNewFact} variant="contained" color="secondary" className="button" Link to="/facts">
+                    Add Facts
+      </Button>
             </div>
 
         );
@@ -104,4 +97,4 @@ class DisplayImages extends Component {
 const mapStateToProps = (reduxStore) => ({
     reduxStore
 });
-export default connect(mapStateToProps)(DisplayImages);
+export default connect(mapStateToProps)(DisplayFacts);

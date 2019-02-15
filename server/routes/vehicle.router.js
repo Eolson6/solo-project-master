@@ -37,6 +37,21 @@ router.post('/', (req, res) => {
             });
 });
 
+router.delete('/:id', (req, res) => {
+    const id = [req.params.id];
+    console.log('in delete vehicle router', id);
+
+    const queryText = `DELETE FROM "vehicle"
+                    WHERE id= $1`;
+    pool.query(queryText, id)
+        .then(() => { res.sendStatus(200); })
+        .catch((error) => {
+            console.log('error in delete vehicle', error);
+            res.sendStatus(500);
+        });
+
+});
+
 
 
 module.exports = router;

@@ -18,7 +18,10 @@ class AddImagePage extends Component {
         }
         const action = { type: 'ADD_NEW_IMAGE', payload: newImage };
         this.props.dispatch(action);
-    }
+        this.props.history.push('newIncident')
+    } 
+     
+    
 
     styles = theme => ({
         button: {
@@ -72,7 +75,7 @@ class AddImagePage extends Component {
                     margin="normal"
                 />
                 
-                    <Button onClick={this.addNewImage} variant="outlined" color="primary" className="button">
+                    <Button onClick={this.addNewImage} variant="outlined" color="primary" className="button" Link to="/newIncident">
                         Submit
                     </Button>
                 

@@ -19,11 +19,14 @@ import InfoPage from '../InfoPage/InfoPage';
 import AddVehiclePage from '../AddVehiclePage/AddVehiclePage';
 import NewIncidentPage from '../NewIncidentPage/NewIncidentPage';
 import AddImagePage from '../AddImagePage/AddImagePage';
+import AddFactsPage from '../AddFactsPage/AddFactsPage'
 import AddWitnessPage from '../AddWitnessPage/AddWitnessPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import DisplayImages from '../DisplayImages/DisplayImages';
 import DisplayVehicles from '../DisplayVehicles/DisplayVehicles';
 import DisplayWitnesses from '../DisplayWitnesses/DisplayWitnesses';
+import CssBaseline from '@material-ui/core/CssBaseline'
+import 'typeface-roboto';
 
 import './App.css';
 
@@ -34,6 +37,7 @@ class App extends Component {
 
   render() {
     return (
+   
       <Router>
         <div>
           <Nav />
@@ -84,6 +88,11 @@ class App extends Component {
               path="/image"
               component={AddImagePage}
             />
+            <ProtectedRoute
+              exact
+              path="/facts"
+              component={AddFactsPage}
+            />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute
@@ -102,7 +111,11 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+      
   )}
+      
 }
+
+ 
 
 export default connect()(App);

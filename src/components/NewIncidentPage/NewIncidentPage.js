@@ -10,15 +10,31 @@ import NumberFormat from 'react-number-format';
 import DisplayWitnesses from '../DisplayWitnesses/DisplayWitnesses';
 import DisplayImages from '../DisplayImages/DisplayImages';
 import DisplayVehicless from '../DisplayVehicles/DisplayVehicles';
-import { Route, withRouter } from 'react-router-dom';
+import DisplayFacts from '../DisplayFacts/DisplayFacts'
+import { Link } from 'react-router'
+import AddVehiclePage from '../AddVehiclePage/AddVehiclePage';
+import { withRouter } from 'react-router';
 
 
 
 class NewIncidentPage extends Component {
+    goToAddNewImage = () => {
+        this.props.history.push('image');
+    }
+
+
 
 componentDidMount() {
-    this.getincidentItems();
-}
+        this.getWitnesses();
+    
+
+    }
+
+    getWitnesses = () => {
+        const action = { type: 'GET_WITNESSES' };
+        this.props.dispatch(action);
+        console.log('action', action);
+    }
 
 getincidentItems=()=>{
     const action ={type: 'GET_INCIDENT_ITEMS'};
@@ -33,9 +49,10 @@ getincidentItems=()=>{
         // const { classes } = props;
         return (
             <div>
-                <DisplayImages />
+                <DisplayImages history={this.props.history} />
                 <DisplayVehicless addNewVehicle={this.addNewVehicle}/>
                 <DisplayWitnesses/>
+                <DisplayFacts/>
             </div>
 
         );

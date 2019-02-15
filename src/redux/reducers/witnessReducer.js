@@ -4,7 +4,7 @@ const witnessReducer = (state = [], action) => {
     console.log('in incidentItem');
 
     switch (action.type) {
-        case 'ADD_WITNESS_REDUCER':
+        case 'WITNESS_REDUCER':
             return action.payload;
         default:
             return state;

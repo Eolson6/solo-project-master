@@ -4,7 +4,7 @@ CREATE TABLE "person" (
     "password" VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE "incident" (
+CREATE TABLE "facts" (
 "id" SERIAL PRIMARY KEY,
 "location" 	VARCHAR (100) NOT NULL,
 "type" VARCHAR (50) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE "incident" (
 "notes" VARCHAR (50)
 );
 
-INSERT INTO incident ("id", "location", "type", "time", "date", "notes")
+INSERT INTO facts ("id", "location", "type", "time", "date", "notes")
 VALUES ('1', 'Edina', 'intersection', '2:30', '01-12-2019', '2 cars');
 
 CREATE TABLE "vehicle" (

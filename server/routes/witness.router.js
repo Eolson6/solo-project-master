@@ -33,4 +33,20 @@ console.log('in witness post', newWitness);
     })
 });
 
+router.delete('/:id', (req, res) => {
+    const id = [req.params.id];
+    console.log('in delete witness router', id);
+
+    const queryText = `DELETE FROM "witnesses"
+                    WHERE id= $1`;
+    pool.query(queryText, id)
+        .then(() => { res.sendStatus(200); })
+        .catch((error) => {
+            console.log('error in delete witness', error);
+            res.sendStatus(500);
+        });
+
+});
+
+
 module.exports = router;

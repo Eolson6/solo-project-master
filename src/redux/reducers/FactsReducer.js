@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-const imageReducer = (state = [], action) => {
+const factReducer = (state = [], action) => {
     console.log('in incidentItem');
 
     switch (action.type) {
-        case 'IMAGE_REDUCER':
+        case 'FACT_REDUCER':
             return action.payload;
         default:
             return state;
@@ -12,5 +12,5 @@ const imageReducer = (state = [], action) => {
 };
 
 export default combineReducers({
-    imageReducer,
+    factReducer,
 });

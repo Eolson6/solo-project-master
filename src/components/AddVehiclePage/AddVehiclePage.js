@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
 import { timingSafeEqual } from 'crypto';
-
+import { withRouter } from 'react-router';
 
 
 class AddVehiclePage extends Component {
@@ -26,6 +26,7 @@ class AddVehiclePage extends Component {
         console.log('in add vehicle page', newVehicle);
         
         this.props.dispatch(action);
+        this.props.history.push('newIncident')
 
     }
 
@@ -147,7 +148,7 @@ class AddVehiclePage extends Component {
                     margin="normal"
                 />
 
-                <Button onClick={this.addNewVehicle} variant="outlined" color="primary" className="button">
+                <Button onClick={this.addNewVehicle} variant="outlined" color="primary" className="button" Link to="/newIncident">
                     Submit
                     </Button>
                  </ form >

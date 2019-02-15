@@ -22,6 +22,7 @@ prop-types
 react
 react-dom
 npm install react-number-format --save
+install typeface-roboto --save
 
 ## Create database and table
 

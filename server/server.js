@@ -15,7 +15,7 @@ const newIncidentRouter = require('./routes/newIncident.router');
 const reviewRouter = require('./routes/review.router');
 const vehicleRouter = require('./routes/vehicle.router');
 const witnessRouter = require('./routes/witness.router');
-
+const factsRouter = require('./routes/facts.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -35,6 +35,7 @@ app.use('/api/newIncident', newIncidentRouter);
 app.use('/api/review', reviewRouter);
 app.use('/api/vehicle', vehicleRouter);
 app.use('/api/witness', witnessRouter);
+app.use('/api/facts', factsRouter);
 
 // Serve static files
 app.use(express.static('build'));
