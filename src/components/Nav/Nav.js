@@ -22,27 +22,27 @@ const Nav = (props) => (
           <Link className="nav-link" to="/info">
             Info Page
           </Link>
-          <Link className="nav-link" to="/vehicle">
+          {/* <Link className="nav-link" to="/vehicle">
             Vehicle Page
           </Link>
           <Link className="nav-link" to="/witness">
             Witness Page
-          </Link>
+          </Link> */}
           <Link className="nav-link" to="/newIncident">
             New Incident  Page
           </Link>
-          <Link className="nav-link" to="/image">
+          {/* <Link className="nav-link" to="/image">
             Image Page
-          </Link>
-          <Link className="nav-link" to="/facts">
+          </Link> */}
+          {/* <Link className="nav-link" to="/facts">
             Facts Page
-          </Link>
+          </Link> */}
           <Link className="nav-link" to="/review">
             Review Page
           </Link>
-          <Link className="nav-link" to="/displayVehicle">
+          {/* <Link className="nav-link" to="/displayVehicle">
             Display Vehicle
-          </Link>
+          </Link> */}
           <LogOutButton className="nav-link"/>
         </>
       )}

@@ -43,8 +43,11 @@ getincidentItems=()=>{
         return (
             <div>
                 <DisplayImages history={this.props.history} />
+                <br></br>
                 <DisplayVehicless history={this.props.history}/>
+                <br></br>
                 <DisplayWitnesses history={this.props.history}/>
+                <br></br>
                 <DisplayFacts history={this.props.history}/>
             </div>
 
