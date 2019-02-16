@@ -1,22 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import NumberFormat from 'react-number-format';
-import { EventEmitter } from 'events';
 import axios from 'axios';
-import {
-    HashRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-} from 'react-router-dom';
-
-
 
 class DisplayImages extends Component {
 
@@ -70,31 +54,23 @@ class DisplayImages extends Component {
 
     render() {
         // const { classes } = props;
-        { JSON.stringify(this.props) }
+       
         return (
             <div>
                 {this.props.reduxStore.imageReducer.imageReducer.map((image, i) => {
                     return (<tr key={i}>
-                        <TextField
-                            id="image"
-                            label="image"
-                            defaultValue={image.image_description}
-                            className="textField"
-                            margin="normal"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="outlined"
-                        />
-                        <Button onClick={this.deleteImage} value={image.id} variant="contained" color="secondary" className="button" >
+                        
+                        <h1>{image.image_description}</h1>
+                         
+                        <button class="button-delete" onClick={this.deleteImage} value={image.id} >
                             Delete Images
-                                        </Button>
+                                        </button>
                     </tr>
                     )
                 })}
-                <Button onClick={this.goToAddNewImage} variant="contained" color="secondary" className="button" Link to="/image">
+                <button class="button-add" onClick={this.goToAddNewImage}Link to="/image">
                     Add Image
-                </Button>
+                </button>
             </div>
 
         );

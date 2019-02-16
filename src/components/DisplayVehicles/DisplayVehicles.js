@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import NumberFormat from 'react-number-format';
-import green from '@material-ui/core/colors/green';
-import red from '@material-ui/core/colors/red';
-import axios from "axios";
-
+import axios from 'axios';
 
 
 class DisplayVehicles extends Component {
@@ -22,8 +12,6 @@ class DisplayVehicles extends Component {
         }
     }
 
-
-    secondary = green[500]; // #4caf50
 
 
     componentDidMount() {
@@ -57,7 +45,7 @@ class DisplayVehicles extends Component {
     //     });
     // }
 
-    addVehicle = () => {
+    goToAddNewVehicle = () => {
         this.props.history.push('vehicle')
     }
 
@@ -73,42 +61,23 @@ class DisplayVehicles extends Component {
                 {this.props.reduxStore.vehicleReducer.vehicleReducer.map((vehicle, i) => {
                     return (<tr key={i}>
                         {/* <td>{vehicle.owner}</td> */}
-                        <TextField
-                            id="vechicle"
-                            label="vehicle"
-                            value={vehicle.owner}
-                            className="textField"
-                            margin="normal"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="outlined"
-                        />
+                        <h1>{vehicle.owner}</h1>
+                    
                         
-                            <Button variant="contained" color="secondary" className="button" value={vehicle.id}>
+                        <button class="button-delete" onClick={this.deleteImage} value={vehicle.id}>
                                 Delete Vehicles
-                                        </Button>
+                                        </button>
                         
 
                     </tr>
                     )
                 })}
 
-                {/* <TextField
-                   id="vechicle"
-                   label="vehicle"
-                    // defaultValue="No Vehicles Added"
-                    className="textField"
-                    margin="normal"
-                    InputProps={{
-                        readOnly: true,
-                    }}
-                    variant="outlined"
-                />
-                 */}
-                <Button onClick={this.addVehicle} variant="contained" color="secondary" className="button" >
+           
+                
+                <button class="button-add" onClick={this.goToAddNewVehicle} >
                     Add Vehicle
-      </Button>
+      </button>
 
             </div>
 

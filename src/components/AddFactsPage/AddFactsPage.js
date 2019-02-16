@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import NumberFormat from 'react-number-format';
-import { timingSafeEqual } from 'crypto';
-import { withRouter } from 'react-router';
 
 
 class AddFactsPage extends Component {
 
-    addFacts = () => {
+    addNewFacts = () => {
         // const newFacts = {
         //     location: this.state.location,
         //     type: this.state.type,
@@ -33,14 +24,6 @@ class AddFactsPage extends Component {
 
     }
 
-    styles = theme => ({
-        button: {
-            margin: theme.spacing.unit,
-        },
-        input: {
-            display: 'none',
-        },
-    });
 
     state = {
         location: '',
@@ -51,106 +34,79 @@ class AddFactsPage extends Component {
 
     };
 
-    handleChange = location => event => {
+    handleLocationChange = event => {
         // console.log('make', this.state);
 
         this.setState({
-            [location]: event.target.value
+            location: event.target.value
         });
     };
 
-    handleChange = type => event => {
+    handleTypeChange = event => {
         // console.log('year', this.state);
 
         this.setState({
-            [type]: event.target.value
+            type: event.target.value
         });
     };
 
-    handleChange = time => event => {
+    handleTimeChange = event => {
         // console.log('model', this.state);
 
         this.setState({
-            [time]: event.target.value
+            time: event.target.value
         });
     };
 
-    handleChange = date => event => {
+    handleDateChange = event => {
         // console.log('license', this.state);
 
         this.setState({
-            [date]: event.target.value
+            date: event.target.value
         });
     };
 
-    handleChange = notes=> event => {
+    handleNotesChange = event => {
         // console.log('vin', this.state);
 
         this.setState({
-            [notes]: event.target.value
+            notes: event.target.value
         });
     };
  
     render() {
-        const { classes } = this.props;
-        return (
-            <form className="text" noValidate autoComplete="off">
-                <TextField
-                    id="location"
-                    label="Location"
-                    value={this.state.value}
-                    // value="2015"
-                    onChange={this.handleChange('location')}
-                    margin="normal"
-                />
-                <TextField
-                    id="type"
-                    label="Type"
-                    value={this.state.value}
-                    // value="ford"
-                    onChange={this.handleChange('type')}
-                    margin="normal"
-                />
-                <TextField
-                    id="time"
-                    label="Time"
-                    value={this.state.value}
-                    // value="explorer"
-                    onChange={this.handleChange('time')}
-                    margin="normal"
-                />
-                <TextField
-                    id="date"
-                    label="Date"
-                    value={this.state.value}
-                    // value="390338"
-                    onChange={this.handleChange('date')}
-                    margin="normal"
-                />
-                <TextField
-                    id="notes"
-                    label="Notes"
-                    value={this.state.value}
-                    // value="293438"
-                    onChange={this.handleChange('notes')}
-                    margin="normal"
-                />
         
+        return (
 
-                <Button onClick={this.addFacts} variant="outlined" color="primary" className="button" Link to="/newIncident">
+            <form action="/newIncident">
+
+                <br />
+                <input type="text" id="location" value={this.state.value} onChange={this.handleLocationChange} placeholder="Location" />
+                <br />
+
+                <input type="text" id="type" value={this.state.value} onChange={this.handleTypeChange} placeholder="Type" />
+                <br />
+                <input type="text" id="time" value={this.state.value} onChange={this.handleTimeChange} placeholder="Time" />
+                <br />
+
+                <input type="text" id="Date" value={this.state.value} onChange={this.handleDateChange} placeholder="Date" />
+                <br />
+                <input type="text" id="Notes" value={this.state.value} onChange={this.handleNotesChange} placeholder="Notes" />
+                <br />
+
+
+                <button class="button-add" onClick={this.addNewFacts} Link to="/newIncident">
                     Submit
-                    </Button>
-            </ form >
+                     </button>
+
+
+            </form> 
+
 
 
         );
     }
 }
-
-// TextFields.propTypes = {
-//     classes: PropTypes.object.isRequired,
-// };
-
 
 const mapStateToProps = state => ({
 

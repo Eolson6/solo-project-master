@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import NumberFormat from 'react-number-format';
-
 
 class AddWitnessPage extends Component {
 
@@ -18,14 +10,6 @@ class AddWitnessPage extends Component {
         this.props.history.push('newIncident')
     }
 
-    styles = theme => ({
-        button: {
-            margin: theme.spacing.unit,
-        },
-        input: {
-            display: 'none',
-        },
-    });
 
     state = {
         name: '',
@@ -38,123 +22,95 @@ class AddWitnessPage extends Component {
 
     };
 
-    handleChange = name => event => {
-        // console.log('name', this.state);
+    handleNameChange = event => {
+        console.log('name', this.state);
 
         this.setState({
-            [name]: event.target.value
+            name: event.target.value
         });
     };
 
-    handleChange = phone => event => {
+    handlePhoneChange = event => {
         // console.log('phone', this.state);
 
         this.setState({
-            [phone]: event.target.value
+            phone: event.target.value
         });
     };
 
-    handleChange = street => event => {
-        // console.log('street', this.state);
+    handleStreetChange = event => {
+        console.log('street', this.state);
 
         this.setState({
-            [street]: event.target.value
+            street: event.target.value
         });
     };
 
-    handleChange = unit => event => {
+    handleUnitChange = event => {
         // console.log('unit', this.state);
 
         this.setState({
-            [unit]: event.target.value
+            unit: event.target.value
         });
     };
 
-    handleChange = city => event => {
+    handleCityChange = event => {
         // console.log('city', this.state);
 
         this.setState({
-            [city]: event.target.value
+            city: event.target.value
         });
     };
-    handleChange = state => event => {
+    handleStateChange = event => {
         // console.log('state', this.state);
 
         this.setState({
-            [state]: event.target.value
+            state: event.target.value
         });
     };
 
-    handleChange = zip => event => {
+    handleZipChange = event => {
         // console.log('zip', this.state);
 
         this.setState({
-            [zip]: event.target.value
+            zip: event.target.value
         });
     };
 
 
     render() {
-        const { classes } = this.props;
         return (
-            <form className="text" noValidate autoComplete="off">
-                <TextField
-                    id="name"
-                    label="Name"
-                    value={this.state.value}
-                    onChange={this.handleChange('name')}
-                    margin="normal"
-                />
-                <TextField
-                    id="phone"
-                    label="Phone Number"
-                    value={this.state.value}
-                    onChange={this.handleChange('phone')}
-                    margin="normal"
-                />
-                <TextField
-                    id="street"
-                    label="Street"
-                    value={this.state.value}
-                    onChange={this.handleChange('street')}
-                    margin="normal"
-                />
-                <TextField
-                    id="unit"
-                    label="Unit"
-                    value={this.state.value}
-                    onChange={this.handleChange('unit')}
-                    margin="normal"
-                />
-                <TextField
-                    id="city"
-                    label="City"
-                    value={this.state.value}
-                    onChange={this.handleChange('city')}
-                    margin="normal"
-                />
-                <TextField
-                    id="state"
-                    label="State"
-                    value={this.state.value}
-                    onChange={this.handleChange('state')}
-                    margin="normal"
-                />
+                
+            <form action="/newIncident">
+                
+                <br/>
+                <input type="text" id="name" value={this.state.value} onChange={this.handleNameChange} placeholder="name"/>
+                        <br/>
+                           
+                                <input type="text" id="phone" value={this.state.value} onChange={this.handlePhoneChange} placeholder="Phone Number"/>
+                                    <br/>
+                <input type="text" id="street" value={this.state.value} onChange={this.handleStreetChange} placeholder="Street" />
+                <br />
 
-                <TextField
-                    id="zip"
-                    label="Zip"
-                    value={this.state.value}
-                    onChange={this.handleChange('zip')}
-                    margin="normal"
-                />
-                <div>
-                    <Button onClick={this.addNewWitness} variant="outlined" color="primary" className="button" Link to="/newIncident">
-                        Submit
-                    </Button>
-                </div>
+                <input type="text" id="unit" value={this.state.value} onChange={this.handleUnitChange} placeholder="Unit" />
+                <br />
+                <input type="text" id="city" value={this.state.value} onChange={this.handleCityChange} placeholder="City" />
+                <br />
 
-            </ form >
+                <input type="text" id="state" value={this.state.value} onChange={this.handleStateChange} placeholder="State" />
+                <br />
+                <input type="text" id="zip" value={this.state.value} onChange={this.handleZipChange} placeholder="Zip Code" />
+                <br />
+
+        
+                   <button class="button-add" onClick={this.addNewWitness} Link to="/newIncident">
+                         Submit
+                     </button>
+                
+
+            </form> 
+
+      
 
         );
        

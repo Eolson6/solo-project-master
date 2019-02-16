@@ -1,22 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import NumberFormat from 'react-number-format';
-import { EventEmitter } from 'events';
 import axios from 'axios';
-import {
-    HashRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-} from 'react-router-dom';
-
-
 
 class DisplayFacts extends Component {
 
@@ -52,13 +36,10 @@ class DisplayFacts extends Component {
         window.location.reload()
     }
 
-    // //talks to saga with action type- gets info from reducer
-    // handleImageID = (event) => {
-    //     console.log('handleDeleteImages', { id: event.target.value });
-    //     this.setState({
-    //         id: event.target.value
-    //     });
-    // }
+    goToAddNewFact = () => {
+        this.props.history.push('/facts');
+    }
+
 
 
 
@@ -68,26 +49,17 @@ class DisplayFacts extends Component {
             <div>
                 {this.props.reduxStore.factReducer.factReducer.map((fact, i) => {
                     return (<tr key={i}>
-                        <TextField
-                            id="Facts"
-                            label="Facts"
-                            defaultValue={fact.location}
-                            className="textField"
-                            margin="normal"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="outlined"
-                        />
-                        <Button onClick={this.deleteFacts} value={fact.id} variant="contained" color="secondary" className="button" >
+                        <h1>{fact.location}</h1>
+                      
+                        <button class="button-delete" onClick={this.deleteFacts} value={fact.id}>
                             Delete Facts
-                                        </Button>
+                                        </button>
                     </tr>
                     )
                 })}
-                <Button onClick={this.redirectAddNewFact} variant="contained" color="secondary" className="button" Link to="/facts">
+                <button class="button-add" onClick={this.goToAddNewFact} Link to="/facts">
                     Add Facts
-      </Button>
+      </button>
             </div>
 
         );

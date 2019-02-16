@@ -15,17 +15,13 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import AddVehiclePage from '../AddVehiclePage/AddVehiclePage';
 import NewIncidentPage from '../NewIncidentPage/NewIncidentPage';
 import AddImagePage from '../AddImagePage/AddImagePage';
 import AddFactsPage from '../AddFactsPage/AddFactsPage'
 import AddWitnessPage from '../AddWitnessPage/AddWitnessPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
-import DisplayImages from '../DisplayImages/DisplayImages';
 import DisplayVehicles from '../DisplayVehicles/DisplayVehicles';
-import DisplayWitnesses from '../DisplayWitnesses/DisplayWitnesses';
-import CssBaseline from '@material-ui/core/CssBaseline'
 import 'typeface-roboto';
 
 import './App.css';
