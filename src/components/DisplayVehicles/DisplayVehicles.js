@@ -33,17 +33,10 @@ class DisplayVehicles extends Component {
         });
         const action = { type: 'DELETE_VEHICLE', payload: event.target.value }
         this.props.dispatch(action)
-        //reloads page after dispatch
-        window.location.reload()
+        
+      
     }
 
-    //talks to saga with action type- gets info from reducer
-    // handleDeleteID = (event) => {
-    //     console.log('handleDeleteImages', {id: event.target.value });
-    //     this.setState({
-    //         id: event.target.value
-    //     });
-    // }
 
     goToAddNewVehicle = () => {
         this.props.history.push('vehicle')
@@ -64,7 +57,7 @@ class DisplayVehicles extends Component {
                         <h1>{vehicle.owner}</h1>
                     
                         
-                        <button class="button-delete" onClick={this.deleteImage} value={vehicle.id}>
+                        <button class="button-delete" onClick={this.deleteVehicle} value={vehicle.id}>
                                 Delete Vehicles
                                         </button>
                         

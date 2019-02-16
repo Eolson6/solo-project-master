@@ -23,7 +23,6 @@ class DisplayWitnesses extends Component {
         });
         const action = { type: 'DELETE_WITNESS', payload: event.target.value }
         this.props.dispatch(action)
-        window.location.reload()
     };
 
     goToAddNewWitness = () => {

@@ -28,4 +28,20 @@ router.post('/', (req, res) => {
             console.log('error in fact post', error);
             res.sendStatus(500)})
 });
+
+router.delete('/:id', (req, res) => {
+    const id = [req.params.id];
+    console.log('in delete image facts', id);
+
+    const queryText = `DELETE FROM "facts"
+                    WHERE id= $1`;
+    pool.query(queryText, id)
+        .then((response) => { res.sendStatus(200); })
+        .catch((error) => {
+            console.log('error in delete facts', error);
+            res.sendStatus(500);
+        });
+
+});
+
 module.exports = router;

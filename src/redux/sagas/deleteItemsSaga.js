@@ -13,7 +13,7 @@ function* deleteVehicle(action) {
         //updated next actin type from SET to GET- also updated what
         //was being sent
         yield axios.delete(`/api/vehicle/${action.payload}`)
-        const nextAction = { type: 'VEHICLE_REDUCER' };
+        const nextAction = { type: 'GET_VEHICLES' };
         yield put(nextAction);
     } catch (error) {
         console.log('error in delete vehicles', error);
@@ -47,7 +47,7 @@ function* deleteWitness(action) {
         //updated next actin type from SET to GET- also updated what
         //was being sent
         yield axios.delete(`/api/witness/${action.payload}`)
-        const nextAction = { type: 'WITNESS_REDUCER' };
+        const nextAction = { type: 'GET_WITNESSES' };
         yield put(nextAction);
     } catch (error) {
         console.log('error in delete witness', error);
@@ -64,7 +64,7 @@ function* deleteFact(action) {
         //updated next actin type from SET to GET- also updated what
         //was being sent
         yield axios.delete(`/api/facts/${action.payload}`)
-        const nextAction = { type: 'FACT_REDUCER' };
+        const nextAction = { type: 'GET_FACTS' };
         yield put(nextAction);
     } catch (error) {
         console.log('error in fact witness', error);
@@ -76,7 +76,7 @@ function* deleteItemsSaga() {
     yield takeLatest('DELETE_VEHICLE', deleteVehicle);
     yield takeLatest('DELETE_IMAGE', deleteImage);
     yield takeLatest('DELETE_WITNESS', deleteWitness);
-    yield takeLatest('DELETE_FACT', deleteFact);
+    yield takeLatest('DELETE_FACTS', deleteFact);
   
 }
 

@@ -22,8 +22,6 @@ class DisplayImages extends Component {
         this.props.dispatch(action);
         console.log('action', action);
 
-
-
     }
 
     deleteImage = (event) => {
@@ -34,23 +32,12 @@ class DisplayImages extends Component {
         });
         const action = { type: 'DELETE_IMAGE', payload: event.target.value }
         this.props.dispatch(action)
-        // window.location.reload()
     }
-
-    // //talks to saga with action type- gets info from reducer
-    // handleImageID = (event) => {
-    //     console.log('handleDeleteImages', { id: event.target.value });
-    //     this.setState({
-    //         id: event.target.value
-    //     });
-    // }
 
 
     goToAddNewImage = () => {
         this.props.history.push('/image');
     }
-
-
 
     render() {
         // const { classes } = props;

@@ -31,10 +31,9 @@ class DisplayFacts extends Component {
             id: event.target.value
 
         });
-        const action = { type: 'DELETE_FACT', payload: event.target.value }
-        this.props.dispatch(action)
-        window.location.reload()
-    }
+        const action = { type: 'DELETE_FACTS', payload: event.target.value }
+        this.props.dispatch(action)   
+    };
 
     goToAddNewFact = () => {
         this.props.history.push('/facts');
