@@ -59,13 +59,13 @@ input {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: rgb(254, 8, 4);
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button-delete:hover {background-color: #3e8e41}
+.button-delete:hover {background-color: #d20404}
 
 .button-delete:active {
   background-color: #3e8e41;
@@ -82,16 +82,40 @@ input {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: rgb(8, 198, 240);
+  background-color: rgb(0, 189, 6);
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button-add:hover {background-color: #0798f2}
+.button-add:hover {background-color: #04a41c}
 
 .button-add:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+.button-complete {
+    display: inline-block;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgb(18, 5, 255);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button-complete:hover {background-color: #031dae}
+
+.button-complete:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+

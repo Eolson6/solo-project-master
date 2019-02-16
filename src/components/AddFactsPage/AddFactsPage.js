@@ -95,7 +95,7 @@ class AddFactsPage extends Component {
                 <br />
 
 
-                <button class="button-add" onClick={this.addNewFacts} Link to="/newIncident">
+                <button class="button-complete" onClick={this.addNewFacts} Link to="/newIncident">
                     Submit
                      </button>
 

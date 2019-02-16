@@ -98,7 +98,7 @@ class AddVehiclePage extends Component {
                 <input type="text" id="owner" value={this.state.value} onChange={this.handleOwnerChange} placeholder="Owner" />
                 <br />
 
-                <button class="button-add" onClick={this.addNewVehicle} Link to="/newIncident">
+                <button class="button-complete" onClick={this.addNewVehicle} Link to="/newIncident">
                     Submit
                      </button>
 

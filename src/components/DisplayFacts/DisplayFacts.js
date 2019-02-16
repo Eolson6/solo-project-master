@@ -48,7 +48,36 @@ class DisplayFacts extends Component {
             <div>
                 {this.props.reduxStore.factReducer.factReducer.map((fact, i) => {
                     return (<tr key={i}>
-                        <h1>{fact.location}</h1>
+                        {/* <h1>{fact.location}</h1> */}
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#multipleCollapse1" aria-expanded="false" aria-controls="multipleCollapse1">Basic Facts</a>
+                            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multipleCollapse2" aria-expanded="false" aria-controls="multipleCollapse2">Toggle Second Element</button>
+                            <button class="btn btn-success" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multipleCollapse1 multipleCollapse2">Toggle Both Elements</button>
+                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multipleCollapse2">
+                                    <div class="card card-body">
+                                        {fact.location}
+                                        <button class="button-add" onClick={this.goToAddNewImage} Link to="/image">
+                                            Add Image
+                </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multipleCollapse2">
+                                    <div class="card card-body">
+                                        Here is the content for block which will be shown when the second button is clicked. This uses button with data-target attribute for collapsing.
+
+      </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
                       
                         <button class="button-delete" onClick={this.deleteFacts} value={fact.id}>
                             Delete Facts

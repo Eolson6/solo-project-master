@@ -103,7 +103,7 @@ class AddWitnessPage extends Component {
                 <br />
 
         
-                   <button class="button-add" onClick={this.addNewWitness} Link to="/newIncident">
+                   <button class="button-complete" onClick={this.addNewWitness} Link to="/newIncident">
                          Submit
                      </button>
                 

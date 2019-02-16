@@ -1,107 +1,67 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
-// import classNames from 'classnames';
-// import { withStyles } from '@material-ui/core/styles';
-// import Paper from '@material-ui/core/Paper';
-// import Typography from '@material-ui/core/Typography';
-// import ListSubheader from '@material-ui/core/ListSubheader';
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import Collapse from '@material-ui/core/Collapse';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// // import DraftsIcon from '@material-ui/icons/Drafts';
-// import SendIcon from '@material-ui/icons/Send';
-// import ExpandLess from '@material-ui/icons/ExpandLess';
-// import ExpandMore from '@material-ui/icons/ExpandMore';
-// import StarBorder from '@material-ui/icons/StarBorder';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-// const styles = theme => ({
-//     root: {
-//         ...theme.mixins.gutters(),
-//         paddingTop: theme.spacing.unit * 2,
-//         paddingBottom: theme.spacing.unit * 2,
-//         paddingSide: theme.spacing.unit * 4,
-//         width: '100%',
-//         maxWidth: 360,
-//         backgroundColor: theme.palette.background.paper,
-//     },
-//     nested: {
-//         paddingLeft: theme.spacing.unit * 4,
-//     },
-   
-// });
+class ReviewPage extends Component {
 
-// function ReviewPage(props) {
 
-//     class NestedList extends React.Component {
-//         state = {
-//             open: true,
-//         };
 
-//         handleClick = () => {
-//             this.setState(state => ({ open: !state.open }));
-//         };
-//     }
- 
+render() {
     
-    
+    return (
+        
+        <div class="container">
+            <h2>Collapsible List Group</h2>
+            <p>Click on the collapsible panel to open and close it.</p>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <li class="list-group-item">One</li>
+                            <li class="list-group-item">Two</li>
+                            <li class="list-group-item">Three</li>
+                        </ul>
+                        <div class="panel-footer">Footer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h2>Collapsible List Group</h2>
+                <p>Click on the collapsible panel to open and close it.</p>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <ul class="list-group">
+                                <li class="list-group-item">One</li>
+                                <li class="list-group-item">Two</li>
+                                <li class="list-group-item">Three</li>
+                            </ul>
+                            <div class="panel-footer">Footer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-//         // const { classes } = props;
-//         return (
-//             <div>
-                
-//                 <Paper elevation={4}>
-//                     <List
-//                         component="nav"
-//                         subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
-//                         // className={classes.root}
-//                     >
-//                         <ListItem button>
-//                             <ListItemIcon>
-//                                 <SendIcon />
-//                             </ListItemIcon>
-//                             <ListItemText inset primary="Sent mail" />
-//                         </ListItem>
-//                         <ListItem button>
-//                             <ListItemIcon>
-                             
-//                             </ListItemIcon>
-//                             <ListItemText inset primary="Drafts" />
-//                         </ListItem>
-//                         <ListItem button onClick={this.handleClick}>
-//                             <ListItemIcon>
-//                                 <InboxIcon />
-//                             </ListItemIcon>
-//                             <ListItemText inset primary="Inbox" />
-//                             {this.state.open ? <ExpandLess /> : <ExpandMore />}
-//                         </ListItem>
-//                         <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-//                             <List component="div" disablePadding>
-//                                 <ListItem button>
-//                                     <ListItemIcon>
-//                                         <StarBorder />
-//                                     </ListItemIcon>
-//                                     <ListItemText inset primary="Starred" />
-//                                 </ListItem>
-//                             </List>
-//                         </Collapse>
-//                     </List>
-//     );
-//                   }
-//                 }
-//                 </Paper>
-//             </div>
-//         );
-//             }
-       
+        </div>
+
+        
 
 
+    );
+}
+}
 
-// ReviewPage.propTypes = {
-//     classes: PropTypes.object.isRequired,
-// };
+const mapStateToProps = state => ({
 
-// export default withStyles(styles)(ReviewPage);
+});
+
+export default connect(mapStateToProps)(ReviewPage);

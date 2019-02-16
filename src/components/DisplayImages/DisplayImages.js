@@ -41,23 +41,18 @@ class DisplayImages extends Component {
 
     render() {
         // const { classes } = props;
-       
+
         return (
             <div>
                 {this.props.reduxStore.imageReducer.imageReducer.map((image, i) => {
                     return (<tr key={i}>
-                        
-                        <h1>{image.image_description}</h1>
-                         
-                        <button class="button-delete" onClick={this.deleteImage} value={image.id} >
-                            Delete Images
-                                        </button>
+
+                    
+
                     </tr>
                     )
                 })}
-                <button class="button-add" onClick={this.goToAddNewImage}Link to="/image">
-                    Add Image
-                </button>
+
             </div>
 
         );
