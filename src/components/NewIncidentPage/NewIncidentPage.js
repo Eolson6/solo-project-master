@@ -8,15 +8,15 @@ import DisplayFacts from '../DisplayFacts/DisplayFacts'
 
 
 class NewIncidentPage extends Component {
-    goToAddNewImage = () => {
-        this.props.history.push('image');
-    }
+   
+
+  
 
 
 
-componentDidMount() {
+    componentDidMount() {
         this.getWitnesses();
-    
+
 
     }
 
@@ -26,17 +26,28 @@ componentDidMount() {
         console.log('action', action);
     }
 
-getincidentItems=()=>{
-    const action ={type: 'GET_INCIDENT_ITEMS'};
-    this.props.dispatch(action);
-}
+    getincidentItems = () => {
+        const action = { type: 'GET_INCIDENT_ITEMS' };
+        this.props.dispatch(action);
+    }
 
-    addNewVehicle = (event) => {
-        this.props.history.push('vehicle');
+    goToAddNewVehicle = () => {
+        this.props.history.push('vehicle')
+    }
+    goToAddNewImage = () => {
+        this.props.history.push('image');
+    }
+
+    goToAddNewFact = () => {
+        this.props.history.push('/facts');
+    }
+
+    goToAddNewWitness = () => {
+        this.props.history.push('/witness');
     }
 
     render() {
-        // const { classes } = props;
+       
         return (
             <div>
 
@@ -51,10 +62,13 @@ getincidentItems=()=>{
                     <div class="col">
                         <div class="collapse multi-collapse" id="multipleCollapse1">
                             <div class="card card-body">
+                                <button class="button-add" onClick={this.goToAddNewFact} Link to="/facts">
+                                    Add Facts
+                                    
+      </button>
 
-                                <button class="button-add" onClick={this.goToAddNewImage} Link to="/image">
-                                    Add Image
-                </button>
+
+
 
                             </div>
                         </div>
@@ -62,41 +76,50 @@ getincidentItems=()=>{
                     <div class="col">
                         <div class="collapse multi-collapse" id="multipleCollapse2">
                             <div class="card card-body">
-                                 second button is clicked. This uses button with data-target attribute for collapsing.
-
-      </div>
+                                {/* second button is clicked. This uses button with  */}
+ 
+ <button class="button-add" onClick={this.goToAddNewVehicle} >
+                                    Add Vehicle
+      </button>
+                            </div>
                         </div>
 
                     </div>
                     <div class="col">
                         <div class="collapse multi-collapse" id="multipleCollapse3">
                             <div class="card card-body">
-                                3ere is the content for block which will be shown when the second button is clicked. This uses button with data-target attribute for collapsing.
-
-      </div>
+                                {/* 3ere is the content for block which will be shown when the second button is clicked.  */}
+                                 
+                                <button class="button-add" onClick={this.goToAddNewWitness} Link to="/witness">
+                                    Add Witness
+      </button>
+                            </div>
                         </div>
 
                     </div>
                     <div class="col">
                         <div class="collapse multi-collapse" id="multipleCollapse4">
                             <div class="card card-body">
-                                clicked. This uses button with data-target attribute for collapsing.
+                             
+                                    <button class="button-add" onClick={this.goToAddNewImage} Link to="/image">
+                                    Add Image
+                </button>
 
-      </div>
+                            </div>
                         </div>
 
                     </div>
-                    
+
                 </div>
 
-                {/* <DisplayImages history={this.props.history} />
-                <br></br>
+                <DisplayImages history={this.props.history} />
+                <br></br> 
                 <DisplayVehicless history={this.props.history}/>
-                <br></br>
+                <br></br> 
                 <DisplayWitnesses history={this.props.history}/>
                 <br></br>
                 <DisplayFacts history={this.props.history}/>
-                <br></br> */}
+                <br></br>
                 <button class="button-complete" onClick={this.goToAddNewFact} Link to="/facts">
                     Complete
       </button>

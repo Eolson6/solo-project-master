@@ -36,7 +36,8 @@ class DisplayWitnesses extends Component {
             <div>
                 {this.props.reduxStore.witnessReducer.witnessReducer.map((witness,i)=>{
                             return (<tr>
-                                <h1>{witness.name}</h1>
+                                <h3>Witnesses</h3>
+                                <h4>{witness.name}</h4>
                            
                                 <button class ="button-delete" onClick={this.deleteWitness} value={witness.id} >
                                     Delete Witness
@@ -48,9 +49,9 @@ class DisplayWitnesses extends Component {
               
               
       
-                <button class="button-add" onClick={this.goToAddNewWitness} Link to="/witness">
+                {/* <button class="button-add" onClick={this.goToAddNewWitness} Link to="/witness">
                     Add Witness
-      </button>
+      </button> */}
             </div>
 
         );

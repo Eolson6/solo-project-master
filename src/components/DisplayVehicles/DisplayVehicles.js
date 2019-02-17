@@ -54,7 +54,8 @@ class DisplayVehicles extends Component {
                 {this.props.reduxStore.vehicleReducer.vehicleReducer.map((vehicle, i) => {
                     return (<tr key={i}>
                         {/* <td>{vehicle.owner}</td> */}
-                        <h1>{vehicle.owner}</h1>
+                        <h3>Vehicles Involved </h3>
+                        <h4>{vehicle.owner}</h4>
                     
                         
                         <button class="button-delete" onClick={this.deleteVehicle} value={vehicle.id}>
@@ -68,9 +69,9 @@ class DisplayVehicles extends Component {
 
            
                 
-                <button class="button-add" onClick={this.goToAddNewVehicle} >
+                {/* <button class="button-add" onClick={this.goToAddNewVehicle} >
                     Add Vehicle
-      </button>
+      </button> */}
 
             </div>
 
