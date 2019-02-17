@@ -111,11 +111,34 @@ input {
   box-shadow: 0 9px #999;
 }
 
-.button-complete:hover {background-color: #031dae}
+.button-collapse:hover {background-color: #031dae}
 
-.button-complete:active {
+.button-collapse:active {
+  background-color: #02bef7;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+ 
+}
+
+.button-collapse {
+    display: inline-block;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgb(18, 5, 255);
+  border: none;
+  /* border-radius: 5px; */
+  box-shadow: 0 9px #999;
+}
+
+.button-collapse:hover {background-color: #031dae}
+
+.button-collapse:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-

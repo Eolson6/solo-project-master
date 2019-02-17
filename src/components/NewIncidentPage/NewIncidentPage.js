@@ -4,11 +4,18 @@ import DisplayWitnesses from '../DisplayWitnesses/DisplayWitnesses';
 import DisplayImages from '../DisplayImages/DisplayImages';
 import DisplayVehicless from '../DisplayVehicles/DisplayVehicles';
 import DisplayFacts from '../DisplayFacts/DisplayFacts'
+import { EventEmitter } from 'events';
 
 
 
 class NewIncidentPage extends Component {
    
+constructor() {
+    super();
+        this.state = {
+            scenario: ''
+        }
+    }
 
   
 
@@ -46,22 +53,34 @@ class NewIncidentPage extends Component {
         this.props.history.push('/witness');
     }
 
+    //     handleChange = (event) =>{
+    //         this.setState({
+    //             scenario: EventEmitter.target.value,
+    //         })
+    //     }
+    // }
+
     render() {
        
         return (
             <div>
 
+
                 <p>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#multipleCollapse1" aria-expanded="false" aria-controls="multipleCollapse1">Basic Facts </a>
-                    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multipleCollapse2" aria-expanded="false" aria-controls="multipleCollapse2">Vehicles</button>
-                    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multipleCollapse3" aria-expanded="false" aria-controls="multipleCollapse3">Witnesses</button>
-                    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multipleCollapse4" aria-expanded="false" aria-controls="multipleCollapse4">Images</button>
-                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multipleCollapse1 multipleCollapse2 multipleCollapse3 multipleCollapse4">Revierw Information Added </button>
+                    <a class="button-collapse" data-toggle="collapse" href="#multipleCollapse1" aria-expanded="false" aria-controls="multipleCollapse1">Basic Facts </a>
+                    <button class="button-collapse" type="button" data-toggle="collapse" data-target="#multipleCollapse2" aria-expanded="false" aria-controls="multipleCollapse2">Vehicles</button>
+                    
+                    <button class="button-collapse" type="button" data-toggle="collapse" data-target="#multipleCollapse3" aria-expanded="false" aria-controls="multipleCollapse3">Witnesses</button>
+                    
+                    <button class="button-collapse" type="button" data-toggle="collapse" data-target="#multipleCollapse4" aria-expanded="false" aria-controls="multipleCollapse4">Images</button>
+                    
+                    <button class="button-collapse" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multipleCollapse1 multipleCollapse2 multipleCollapse3 multipleCollapse4">Revierw Information Added </button>
                 </p>
                 <div class="row">
                     <div class="col">
                         <div class="collapse multi-collapse" id="multipleCollapse1">
                             <div class="card card-body">
+                                <DisplayFacts history={this.props.history} />
                                 <button class="button-add" onClick={this.goToAddNewFact} Link to="/facts">
                                     Add Facts
                                     
@@ -73,10 +92,12 @@ class NewIncidentPage extends Component {
                             </div>
                         </div>
                     </div>
+                    <br></br>
                     <div class="col">
                         <div class="collapse multi-collapse" id="multipleCollapse2">
                             <div class="card card-body">
                                 {/* second button is clicked. This uses button with  */}
+                                <DisplayVehicless history={this.props.history} />
  
  <button class="button-add" onClick={this.goToAddNewVehicle} >
                                     Add Vehicle
@@ -123,7 +144,24 @@ class NewIncidentPage extends Component {
                 <button class="button-complete" onClick={this.goToAddNewFact} Link to="/facts">
                     Complete
       </button>
+
+
+                <div class="dropdown">
+                <select onChange={this.handleChange} value={this.state.scenario}>
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Scenarios
+    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Parking Lot</a></li>
+                        <li><a href="#">Hit and Run</a></li>
+                        <li><a href="#">Intersection</a></li>
+                        <li><a href="#">Hit Pedistrian/Bicyclist</a></li>
+                        <li><a href="#">Hit Animal/Falling Object/Weather Related</a></li>
+                        <li><a href="#">Injuries</a></li>
+                   </ul>
+                    </select>
+                </div>
             </div>
+            
 
         );
     }

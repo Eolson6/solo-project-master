@@ -37,6 +37,7 @@ app.use('/api/vehicle', vehicleRouter);
 app.use('/api/witness', witnessRouter);
 app.use('/api/facts', factsRouter);
 
+
 // Serve static files
 app.use(express.static('build'));
 

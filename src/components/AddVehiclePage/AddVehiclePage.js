@@ -83,7 +83,9 @@ class AddVehiclePage extends Component {
         return (
 
             <form action="/newIncident">
-
+                <input type="text" id="owner" value={this.state.value} onChange={this.handleOwnerChange} placeholder="Owner"/>
+                <br />
+                <input type="text" id="driver" value={this.state.value} onChange={this.handleDriveChange} placeholder="Driver" />
                 <br />
                 <input type="text" id="year" value={this.state.value} onChange={this.handleYearChange} placeholder="Year" />
                 <br />
@@ -92,10 +94,16 @@ class AddVehiclePage extends Component {
                 <br />
                 <input type="text" id="model" value={this.state.value} onChange={this.handleModelChange} placeholder="Model" />
                 <br />
-
                 <input type="text" id="license" value={this.state.value} onChange={this.handleLicenseChange} placeholder="License Plate" />
                 <br />
-                <input type="text" id="owner" value={this.state.value} onChange={this.handleOwnerChange} placeholder="Owner" />
+                <input type="text" id="Insurance Company" value={this.state.value} onChange={this.handleInsurancehange} placeholder="Insurance Company" />
+                <br />
+                <input type="text" id="Policy Number" value={this.state.value} onChange={this.handlePolicyChange} placeholder="Policy Number" />
+                {/* <br />
+                <input type="text" id="notes" value={this.state.value} onChange={this.handleNotesChange} placeholder="Notes" /> */}
+                <br />
+                <textarea rows="4" cols="40" id="notes" value={this.state.value} onChange={this.handleNotesChange} placeholder="Notes"></textarea>
+                
                 <br />
 
                 <button class="button-complete" onClick={this.addNewVehicle} Link to="/newIncident">
