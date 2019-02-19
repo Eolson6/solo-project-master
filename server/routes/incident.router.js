@@ -2,17 +2,17 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
-// router.get('/api/incident/id', (req, res) => {
-//     const queryText = `SELECT * FROM incident WHERE "person_id" = $1; `;
-//     pool.query(queryText, [req.user.id])
-//         .then((result) => {
-//             console.log('in image get incident', result);
-//             res.send(result.rows);
-//         })
-// });
+
+//  GET route template
+ 
+router.get('/api/incident/$1', (req, res) => {
+    const queryText = `SELECT * FROM incident WHERE "person_id" = $1; `;
+    pool.query(queryText, [req.user.id])
+        .then((result) => {
+            console.log('in image get incident', result);
+            res.send(result.rows);
+        })
+ });
 
 router.get('/', (req, res) => {
     const queryText = `SELECT * FROM incident `;
@@ -64,19 +64,19 @@ router.put('/id', (req,res)=> {
 }
 })
 
-// router.delete('/:id', (req, res) => {
-//     const id = [req.params.id];
-//     console.log('in delete image incident', id);
+router.delete('/:id', (req, res) => {
+    const id = [req.params.id];
+    console.log('in delete image incident', id);
 
-//     const queryText = `DELETE FROM "incident"
-//                     WHERE id= $1`;
-//     pool.query(queryText, id)
-//         .then((response) => { res.sendStatus(200); })
-//         .catch((error) => {
-//             console.log('error in delete incident', error);
-//             res.sendStatus(500);
-//         });
+    const queryText = `DELETE FROM "incident"
+                    WHERE id= $1`;
+    pool.query(queryText, id)
+        .then((response) => { res.sendStatus(200); })
+        .catch((error) => {
+            console.log('error in delete incident', error);
+            res.sendStatus(500);
+        });
 
-// });
+});
 
 module.exports = router;

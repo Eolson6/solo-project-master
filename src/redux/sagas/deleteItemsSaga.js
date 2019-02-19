@@ -55,7 +55,7 @@ function* deleteWitness(action) {
     }
 }
 
-function* deleteFact(action) {
+function* deleteIncident(action) {
     console.log('action.payload delete incident', action.payload);
     const id = action.payload
     console.log('in incident', id);
@@ -76,7 +76,7 @@ function* deleteItemsSaga() {
     yield takeLatest('DELETE_VEHICLE', deleteVehicle);
     yield takeLatest('DELETE_IMAGE', deleteImage);
     yield takeLatest('DELETE_WITNESS', deleteWitness);
-    yield takeLatest('DELETE_INCIDENT', deleteFact);
+    yield takeLatest('DELETE_INCIDENT', deleteIncident);
   
 }
 

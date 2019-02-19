@@ -57,12 +57,12 @@ function* openIncident(action) {
     try {
         //updated next actin type from SET to GET- also updated what
         //was being sent
-        yield axios.get(`/api/incident/id`)
+        yield axios.get(`/api/incident/${id}`)
         const nextAction = { type: 'OPEN_ID' };
         yield put(nextAction);
     } catch (error) {
-        console.log('error in incident witness', error);
-        alert('error in incident witness')
+        console.log('error in open incident', error);
+        alert('error in open incident')
     }
 }
 
