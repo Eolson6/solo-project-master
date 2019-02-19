@@ -37,8 +37,8 @@ function* addImage(action) {
     }
 }
 
-function* addFacts(action) {
-    console.log('in addFacts saga', action);
+function* addIncident(action) {
+    console.log('in add incident saga', action);
     try {
         yield axios.post('/api/incident', action.payload)
     } catch (error) {
@@ -53,7 +53,7 @@ function* postIncidentItemsSaga() {
     yield takeLatest('ADD_NEW_VEHICLE', addVehicle);
     yield takeLatest('ADD_NEW_WITNESS',  addWitness);
     yield takeLatest('ADD_NEW_IMAGE',  addImage);
-    yield takeLatest('ADD_NEW_FACT', addFacts );
+    yield takeLatest('ADD_NEW_INCIDENT', addIncident );
 }
 
 export default postIncidentItemsSaga;

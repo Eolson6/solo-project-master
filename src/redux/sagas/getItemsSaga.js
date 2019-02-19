@@ -49,11 +49,30 @@ function* getIncident(action) {
     }
 }
 
+function* openIncident(action) {
+    console.log('action.payload update incident', action.payload);
+    const id = action.payload
+    console.log('in open incident', id);
+
+    try {
+        //updated next actin type from SET to GET- also updated what
+        //was being sent
+        yield axios.get(`/api/incident/id`)
+        const nextAction = { type: 'OPEN_ID' };
+        yield put(nextAction);
+    } catch (error) {
+        console.log('error in incident witness', error);
+        alert('error in incident witness')
+    }
+}
+
+
 function* getIncidentItemsSaga() {
     yield takeLatest('GET_VEHICLES', getVehicle);
     yield takeLatest('GET_WITNESSES', getWitness);
     yield takeLatest('GET_IMAGES', getImages);
-    yield takeLatest('GET_INCIDENT', getIncident)
+    yield takeLatest('GET_INCIDENT', getIncident);
+    yield takeLatest('OPEN_INCIDENT', openIncident)
 
 
 }

@@ -6,6 +6,8 @@ import postIncidentItemsSaga from './incidentItemsSaga';
 import getIncidentItemsSaga from './getItemsSaga';
 import deleteItemsSaga from './deleteItemsSaga';
 import getIncidentIdSaga from './idSaga';
+import updateItemsSaga from './putItemsSaga';
+
 
 
 // rootSaga is the primary saga.

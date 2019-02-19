@@ -4,7 +4,7 @@ const currentIdReducer = (state = '', action) => {
     console.log('in incidentId', action);
 
     switch (action.type) {
-        case 'GET_CURRENT_ID':
+        case 'OPEN_ID':
             return action.payload;
         default:
             return state;

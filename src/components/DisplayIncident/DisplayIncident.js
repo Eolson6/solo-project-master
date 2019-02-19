@@ -35,9 +35,20 @@ class DisplayIncident extends Component {
         this.props.dispatch(action)   
     };
 
-    goToAddNewFact = () => {
-        this.props.history.push('/incident');
-    }
+    openIncident = (event) => {
+        console.log('in open incident', this.props.incident);
+        this.setState({
+            id: event.target.value
+
+        });
+        const action = { type: 'OPEN_INCIDENT', payload: event.target.value }
+        this.props.dispatch(action)
+    };
+
+
+    // openIncident = () => {
+    //     this.props.history.push('/incident');
+    // }
 
 
 
@@ -51,7 +62,12 @@ class DisplayIncident extends Component {
                     <tr>
                         <th>Incident Type</th>
                         <th>Location Type</th>
-                        <th>Address</th>
+                        <th>date</th>
+                        <th>time</th>
+                        <th>street</th>
+                        <th>city</th>
+                        <th>state</th>
+                        <th>zip code</th>
                     </tr>
                 </thead>
                 <tbody>

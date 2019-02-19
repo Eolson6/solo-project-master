@@ -27,8 +27,8 @@ const UserPage = (props) => (
     {/* {JSON.stringify(this.state)} */}
     <h1>Previously Recorded incident</h1>
     <DisplayIncident/>
-    <button>Open</button>
-<br></br>
+  
+{/* <br></br>
 <br></br>
 <h1>Record New Incident</h1>
     <div class="dropdown">
@@ -46,7 +46,8 @@ const UserPage = (props) => (
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#">Hit Animal, Weather, etc</a>
       </div>
-    </div>
+    </div> */}
+   
     <a class="btn btn-primary btn-lg btn-spl" href={"http://localhost:3000/NewIncidentPage#/newIncident"} role="button">Create New Incident</a>
     
   </div>

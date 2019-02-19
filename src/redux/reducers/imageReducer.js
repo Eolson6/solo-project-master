@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 const imageReducer = (state = [], action) => {
-    console.log('in incidentItem');
+    console.log('in imageReducer');
 
     switch (action.type) {
         case 'IMAGE_REDUCER':

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 const witnessReducer = (state = [], action) => {
-    console.log('in incidentItem');
+    // console.log('in witness reducer', action);
 
     switch (action.type) {
         case 'WITNESS_REDUCER':

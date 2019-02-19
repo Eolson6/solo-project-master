@@ -5,22 +5,11 @@ import { connect } from 'react-redux';
 class IncidentInput extends Component {
 
     createIncident = () => {
-        // const newFacts = {
-        //     location: this.state.location,
-        //     type: this.state.type,
-        //     time: this.state.time,
-        //     date: this.state.date,
-        //     notes: this.state.notes
-            
-        // }
+     
         const action = { type: 'ADD_NEW_INCIDENT', payload: this.state };
         this.props.dispatch(action);
         this.props.history.push('newIncident')
-        // const action = { type: 'ADD_NEW_FACT', payload: newFacts };
-        // console.log('in add incident page', newFacts);
-
-        // this.props.dispatch(action);
-        // this.props.history.push('newFacts')
+      
 }
 
 
@@ -33,6 +22,7 @@ class IncidentInput extends Component {
         date: '',
         notes: '',
         incident_type:'',
+        zip_code:'',
 
     };
 
@@ -86,6 +76,14 @@ class IncidentInput extends Component {
         });
     };
 
+    handleZipChange = event => {
+        // console.log('license', this.state);
+
+        this.setState({
+            zip_code: event.target.value
+        });
+    };
+
     handleNotesChange = event => {
         // console.log('vin', this.state);
 
@@ -106,7 +104,7 @@ class IncidentInput extends Component {
         
         return (
 
-            <form action="/newIncident">
+            <form>
                 <input type="text" id="incident_type" value={this.state.value} onChange={this.handleIncidentChange} placeholder="Incident Type" />
                 <br />
                 <input type="text" id="location_type" value={this.state.value} onChange={this.handleTypeChange} placeholder="Location Type" />
@@ -118,6 +116,8 @@ class IncidentInput extends Component {
 
                 <input type="text" id="state" value={this.state.value} onChange={this.handleStateChange} placeholder="State" />
                 <br />
+                <input type="text" id="zip_code" value={this.state.value} onChange={this.handleZipChange} placeholder="Zip Code" />
+                <br />
                 <input type="text" id="time" value={this.state.value} onChange={this.handleTimeChange} placeholder="Time" />
                 <br />
 
@@ -127,7 +127,7 @@ class IncidentInput extends Component {
                 <br />
 
 
-                <button class="button-complete" onClick={this.addNewFacts} Link to="/newIncident">
+                <button class="button-complete" onClick={this.createIncident} Link to="/newIncident">
                     Submit
                      </button>
 

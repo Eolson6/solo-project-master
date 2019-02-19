@@ -3,16 +3,16 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
- */
-router.get('/', (req, res) => {
-const queryText = `SELECT * FROM image; `;
-pool.query(queryText)
-.then((result)=>{
-    console.log('in image get router', result);
-    res.send(result.rows);
-})
-});
+//  * GET route template
+//  */
+// router.get('/', (req, res) => {
+// const queryText = `SELECT * FROM image; `;
+// pool.query(queryText)
+// .then((result)=>{
+//     console.log('in image get router', result);
+//     res.send(result.rows);
+// })
+// });
 
 /**
  * POST route template

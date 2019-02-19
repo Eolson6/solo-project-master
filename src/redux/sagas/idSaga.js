@@ -4,9 +4,9 @@ import axios from 'axios';
 
 function* getCurrentIdSaga (action) {
     try {
-        const items = yield axios.get('/api/incident/id', action.payload)
+        const items = yield axios.get('/id', action.payload)
         console.log('in get id saga', action);
-        const nextAction = { type: 'GET_CURRENT_ID', payload: items.data };
+        const nextAction = { type: 'GET_ID', payload: items.data };
         yield put(nextAction)
     } catch (error) {
         console.log('error in get incident saga', error);
@@ -17,7 +17,7 @@ function* getCurrentIdSaga (action) {
 
 function* getIncidentIdSaga() {
     
-    yield takeLatest('GET_CURRENT_ID_SAGA', getCurrentIdSaga)
+    yield takeLatest('GET_ID', getCurrentIdSaga)
 
 
 }
