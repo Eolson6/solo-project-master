@@ -18,10 +18,14 @@ import UserPage from '../UserPage/UserPage';
 import AddVehiclePage from '../AddVehiclePage/AddVehiclePage';
 import NewIncidentPage from '../NewIncidentPage/NewIncidentPage';
 import AddImagePage from '../AddImagePage/AddImagePage';
-import AddFactsPage from '../AddFactsPage/AddFactsPage'
+import IncidentInput from '../IncidentInput/IncidentInput'
 import AddWitnessPage from '../AddWitnessPage/AddWitnessPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import DisplayVehicles from '../DisplayVehicles/DisplayVehicles';
+import CardVehicle from '../CardVehicle/CardVehicle';
+import CardImages from '../CardImages/CardImages';
+import IncidentCard from '../IncidentCard/IncidentCard';
+
 import 'typeface-roboto';
 
 import './App.css';
@@ -46,6 +50,11 @@ class App extends Component {
               exact
               path="/about"
               component={AboutPage}
+            />
+            <Route
+              exact
+              path="/scene"
+              component={IncidentCard}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
@@ -78,6 +87,11 @@ class App extends Component {
               path="/newIncident"
               component={NewIncidentPage}
             />
+            <ProtectedRoute
+              exact
+              path="/cardvehicle"
+              component={CardVehicle}
+            />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute
@@ -87,8 +101,8 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/facts"
-              component={AddFactsPage}
+              path="/incident"
+              component={IncidentInput}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

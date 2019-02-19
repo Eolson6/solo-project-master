@@ -3,172 +3,213 @@ import { connect } from 'react-redux';
 import DisplayWitnesses from '../DisplayWitnesses/DisplayWitnesses';
 import DisplayImages from '../DisplayImages/DisplayImages';
 import DisplayVehicless from '../DisplayVehicles/DisplayVehicles';
-import DisplayFacts from '../DisplayFacts/DisplayFacts'
+import DisplayIncident from '../DisplayIncident/DisplayIncident'
 import { EventEmitter } from 'events';
+import { timingSafeEqual } from 'crypto';
+import CardImages from '../CardImages/CardImages';
+import CardVehicle from '../CardVehicle/CardVehicle';
+import CardPassengers from '../CardPassengers/CardPassengers';
+import IncidentCard from '../IncidentCard/IncidentCard';
+import CardWitnesses from '../CardWitnesses/CardWitnesses';
+import IncidentInput from '../IncidentInput/IncidentInput';
+import AddImagePage from '../AddImagePage/AddImagePage';
+import AddVehiclePage from '../AddVehiclePage/AddVehiclePage';
+import AddWitnessPage from '../AddWitnessPage/AddWitnessPage';
 
 
 
 class NewIncidentPage extends Component {
-   
-constructor() {
-    super();
-        this.state = {
-            scenario: ''
-        }
-    }
 
-  
-
-
-
-    componentDidMount() {
-        this.getWitnesses();
-
-
-    }
-
-    getWitnesses = () => {
-        const action = { type: 'GET_WITNESSES' };
-        this.props.dispatch(action);
-        console.log('action', action);
-    }
-
-    getincidentItems = () => {
-        const action = { type: 'GET_INCIDENT_ITEMS' };
-        this.props.dispatch(action);
-    }
-
-    goToAddNewVehicle = () => {
-        this.props.history.push('vehicle')
-    }
-    goToAddNewImage = () => {
-        this.props.history.push('image');
-    }
-
-    goToAddNewFact = () => {
-        this.props.history.push('/facts');
-    }
-
-    goToAddNewWitness = () => {
-        this.props.history.push('/witness');
-    }
-
-    //     handleChange = (event) =>{
-    //         this.setState({
-    //             scenario: EventEmitter.target.value,
-    //         })
-    //     }
+    constructor(props) {
+        super(props)
+    //     this.display=this.display.bind(this)
     // }
 
-    render() {
-       
-        return (
+    // display(){
+        
+        
+        this.state = ({
+            card: ''
+        })
+        console.log('new incident', this.state);
+    }
+
+
+// componentDidMount() {
+//     this.getWitnesses();
+
+
+// }
+
+// getWitnesses = () => {
+//     const action = { type: 'GET_WITNESSES' };
+//     this.props.dispatch(action);
+//     console.log('action', action);
+// }
+
+// getincidentItems = () => {
+//     const action = { type: 'GET_INCIDENT_ITEMS' };
+//     this.props.dispatch(action);
+// }
+
+
+// goToAddNewImage = () => {
+//     this.props.history.push('image');
+// }
+
+// goToAddNewFact = () => {
+//     this.props.history.push('/incident');
+// }
+// goToAddNewWitness = () => {
+//     this.props.history.push('/witness');
+// }
+
+// handleChange = (event) => {
+//     console.log(this.state);
+
+//     this.setState({
+
+//         accidentType: event.target.value,
+//     })
+
+// }
+
+display = (event) =>{
+    console.log('new incident', this.state);
+    
+    this.setState({
+        card: ''
+    })
+}
+    
+    
+
+
+render() {
+
+    // let displayAccidentGuide='';
+  
+    //     let card = this.state.display;
+    //     let displayAccidentGuide = '';
+    //     console.log('handle change', card);
+    //     console.log(displayAccidentGuide);
+
+
+    // if (this.state.display = "image") {
+    //     displayAccidentGuide =
+    //         <AddImagePage />
+    // } else if
+    //     (this.state.display = "incident") {
+    //     displayAccidentGuide =
+    //         <IncidentInput />
+    // } else if
+    //     (this.state.state = "vehicle") {
+    //     displayAccidentGuide =
+    //         <AddVehiclePage />
+    // } else {
+    //     displayAccidentGuide =
+    //         <AddWitnessPage />
+    // }
+
+   
+    // <div>
+/* 
+        if (this.state.display === "image") {
+                return {
             <div>
-
-
-                <p>
-                    <a class="button-collapse" data-toggle="collapse" href="#multipleCollapse1" aria-expanded="false" aria-controls="multipleCollapse1">Basic Facts </a>
-                    <button class="button-collapse" type="button" data-toggle="collapse" data-target="#multipleCollapse2" aria-expanded="false" aria-controls="multipleCollapse2">Vehicles</button>
-                    
-                    <button class="button-collapse" type="button" data-toggle="collapse" data-target="#multipleCollapse3" aria-expanded="false" aria-controls="multipleCollapse3">Witnesses</button>
-                    
-                    <button class="button-collapse" type="button" data-toggle="collapse" data-target="#multipleCollapse4" aria-expanded="false" aria-controls="multipleCollapse4">Images</button>
-                    
-                    <button class="button-collapse" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multipleCollapse1 multipleCollapse2 multipleCollapse3 multipleCollapse4">Revierw Information Added </button>
-                </p>
-                <div class="row">
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="multipleCollapse1">
-                            <div class="card card-body">
-                                <DisplayFacts history={this.props.history} />
-                                <button class="button-add" onClick={this.goToAddNewFact} Link to="/facts">
-                                    Add Facts
-                                    
-      </button>
-
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <br></br>
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="multipleCollapse2">
-                            <div class="card card-body">
-                                {/* second button is clicked. This uses button with  */}
-                                <DisplayVehicless history={this.props.history} />
- 
- <button class="button-add" onClick={this.goToAddNewVehicle} >
-                                    Add Vehicle
-      </button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="multipleCollapse3">
-                            <div class="card card-body">
-                                {/* 3ere is the content for block which will be shown when the second button is clicked.  */}
-                                 
-                                <button class="button-add" onClick={this.goToAddNewWitness} Link to="/witness">
-                                    Add Witness
-      </button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="multipleCollapse4">
-                            <div class="card card-body">
-                             
-                                    <button class="button-add" onClick={this.goToAddNewImage} Link to="/image">
-                                    Add Image
-                </button>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <DisplayImages history={this.props.history} />
-                <br></br> 
-                <DisplayVehicless history={this.props.history}/>
-                <br></br> 
-                <DisplayWitnesses history={this.props.history}/>
-                <br></br>
-                <DisplayFacts history={this.props.history}/>
-                <br></br>
-                <button class="button-complete" onClick={this.goToAddNewFact} Link to="/facts">
-                    Complete
-      </button>
-
-
-                <div class="dropdown">
-                <select onChange={this.handleChange} value={this.state.scenario}>
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Scenarios
-    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Parking Lot</a></li>
-                        <li><a href="#">Hit and Run</a></li>
-                        <li><a href="#">Intersection</a></li>
-                        <li><a href="#">Hit Pedistrian/Bicyclist</a></li>
-                        <li><a href="#">Hit Animal/Falling Object/Weather Related</a></li>
-                        <li><a href="#">Injuries</a></li>
-                   </ul>
-                    </select>
-                </div>
+                <AddImagePage />
             </div>
+        }
+        } else if
+        (this.state.display = "incident") {
+            displayAccidentGuide =
+            <IncidentInput />
+        } else if
+        (this.state.state = "vehicle") {
+            displayAccidentGuide =
+            <AddVehiclePage />
+        } else {
+            displayAccidentGuide =
+            <AddWitnessPage />
+        } */
+    
+    return (
+        <div>
+            {/* <CardImages display={this.display} history={this.props.history} />
+            <CardPassengers display={this.display} history={this.props.history}   />
+            <CardVehicle display={this.display} history={this.props.history}  />
+            <CardWitnesses display={this.display} history={this.props.history}   /> */}
+            <IncidentCard display={this.display} history={this.props.history} />
             
 
-        );
-    }
-}
+            {/* <CardImages/>
+            <CardPassengers />
+            <CardVehicle />
+            <CardWitnesses  />
+            <IncidentCard /> */}
 
-const mapStateToProps = state => ({
+        {/* {(() => {
+        switch(this.state) {
+            case "image":
+            return <AddImagePage/>;
+            case "incident":
+            return <IncidentInput/>;
+            case "vehicle":
+            return <AddVehiclePage/>;
+            case "witnesses":
+            return <AddWitnessPage/>
+            default: 
+             return <AddVehiclePage/>
+            }
+        })()}  */}
 
-});
 
+
+
+
+
+                       {/* </div>
+                   </div>
+                </div>
+               <br></br> */}
+
+
+
+            
+
+                  {/* <IncidentInput/>
+                <AddImagePage/>
+                <AddVehiclePage/>
+                <AddWitnessPage/>   */}
+
+                {/* <DisplayImages history={this.props.history} />
+                <br></br>
+                <DisplayVehicless history={this.props.history} />
+                <br></br>
+                <DisplayWitnesses history={this.props.history} />
+                <br></br>
+                <DisplayIncident history={this.props.history} />
+                <br></br>
+                <button class="button-complete" onClick={this.goToAddNewFact} Link to="/incident">
+                    Complete
+      </button> */}
+
+
+
+
+            
+        
+
+
+    </div>
+   
+
+                );
+            }
+        }
+        
+const mapStateToProps = (reduxStore) => ({
+                    reduxStore
+                });
+                
 export default connect(mapStateToProps)(NewIncidentPage);

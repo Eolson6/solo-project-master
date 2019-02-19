@@ -37,14 +37,14 @@ function * getImages(action) {
     }
 }
 
-function* getFacts(action) {
+function* getIncident(action) {
     try {
-        const items = yield axios.get('/api/facts', action.payload)
-        console.log('in get fact saga', action);
-        const nextAction = { type: 'FACT_REDUCER', payload: items.data };
+        const items = yield axios.get('/api/incident', action.payload)
+        console.log('in get incident saga', action);
+        const nextAction = { type: 'INCIDENT_REDUCER', payload: items.data };
         yield put(nextAction)
     } catch (error) {
-        console.log('error in get fact saga', error);
+        console.log('error in get incident saga', error);
         alert(error)
     }
 }
@@ -53,7 +53,7 @@ function* getIncidentItemsSaga() {
     yield takeLatest('GET_VEHICLES', getVehicle);
     yield takeLatest('GET_WITNESSES', getWitness);
     yield takeLatest('GET_IMAGES', getImages);
-    yield takeLatest('GET_FACTS', getFacts)
+    yield takeLatest('GET_INCIDENT', getIncident)
 
 
 }

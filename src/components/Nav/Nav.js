@@ -19,7 +19,7 @@ const Nav = (props) => (
       {/* Show the link to the info page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
-          <Link className="nav-link" to="/info">
+          {/* <Link className="nav-link" to="/info">
             Info Page
           </Link>
           <Link className="nav-link" to="/vehicle">
@@ -28,17 +28,23 @@ const Nav = (props) => (
           <Link className="nav-link" to="/witness">
             Witness Page
           </Link>
+          <Link className="nav-link" to="/cardvehicle">
+            Vehicle Card
+          </Link>
           <Link className="nav-link" to="/newIncident">
             New Incident  Page
-          </Link>
+          </Link> */}
           {/* <Link className="nav-link" to="/image">
             Image Page
           </Link> */}
-          {/* <Link className="nav-link" to="/facts">
-            Facts Page
+          {/* <Link className="nav-link" to="/incident">
+            incident Page
           </Link> */}
-          <Link className="nav-link" to="/review">
+          {/* <Link className="nav-link" to="/review">
             Review Page
+          </Link> */}
+          <Link className="nav-link" to="/scene">
+            Scene
           </Link>
           {/* <Link className="nav-link" to="/displayVehicle">
             Display Vehicle

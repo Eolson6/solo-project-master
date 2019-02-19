@@ -11,11 +11,10 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const imageRouter = require('./routes/image.router');
-const newIncidentRouter = require('./routes/newIncident.router');
 const reviewRouter = require('./routes/review.router');
 const vehicleRouter = require('./routes/vehicle.router');
 const witnessRouter = require('./routes/witness.router');
-const factsRouter = require('./routes/facts.router');
+const incidentRouter = require('./routes/incident.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,11 +30,10 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/image', imageRouter);
-app.use('/api/newIncident', newIncidentRouter);
 app.use('/api/review', reviewRouter);
 app.use('/api/vehicle', vehicleRouter);
 app.use('/api/witness', witnessRouter);
-app.use('/api/facts', factsRouter);
+app.use('/api/incident', incidentRouter);
 
 
 // Serve static files

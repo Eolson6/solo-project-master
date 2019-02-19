@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-const factReducer = (state = [], action) => {
+const incidentReducer = (state = [], action) => {
     console.log('in incidentItem');
 
     switch (action.type) {
-        case 'FACT_REDUCER':
+        case 'INCIDENT_REDUCER':
             return action.payload;
         default:
             return state;
@@ -12,5 +12,5 @@ const factReducer = (state = [], action) => {
 };
 
 export default combineReducers({
-    factReducer,
+    incidentReducer,
 });

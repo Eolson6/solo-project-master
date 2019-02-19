@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import NewIncidentPage from '../NewIncidentPage/NewIncidentPage';
 
 class AddWitnessPage extends Component {
+
+    componentDidMount() {
+        this.getCurrentId();
+    }
+
+    getCurrentId = () => {
+        const action = { type: 'GET_CURRENT_ID_SAGA' };
+        this.props.dispatch(action);
+        console.log('get id', action);
+
+
+    }
 
     addNewWitness = (event) => {
         
@@ -82,7 +95,7 @@ class AddWitnessPage extends Component {
         return (
                 
             <form action="/newIncident">
-                
+                <p>Gather contact information from any avaiable witnesses and enter it here.</p>
                 <br/>
                 <input type="text" id="name" value={this.state.value} onChange={this.handleNameChange} placeholder="name"/>
                         <br/>
@@ -107,7 +120,7 @@ class AddWitnessPage extends Component {
                          Submit
                      </button>
                 
-
+                {JSON.stringify(this.props.reduxState)}
             </form> 
 
       
@@ -117,8 +130,8 @@ class AddWitnessPage extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
 });
 
-export default connect(mapStateToProps)(AddWitnessPage );
+export default connect(mapReduxStateToProps)(AddWitnessPage );

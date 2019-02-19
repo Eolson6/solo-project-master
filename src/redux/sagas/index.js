@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import postIncidentItemsSaga from './incidentItemsSaga';
 import getIncidentItemsSaga from './getItemsSaga';
 import deleteItemsSaga from './deleteItemsSaga';
+import getIncidentIdSaga from './idSaga';
 
 
 // rootSaga is the primary saga.
@@ -22,5 +23,6 @@ export default function* rootSaga() {
     postIncidentItemsSaga(),
     getIncidentItemsSaga(),
     deleteItemsSaga(),
+    getIncidentIdSaga(),
   ]);
 }

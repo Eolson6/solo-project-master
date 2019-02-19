@@ -40,9 +40,9 @@ function* addImage(action) {
 function* addFacts(action) {
     console.log('in addFacts saga', action);
     try {
-        yield axios.post('/api/facts', action.payload)
+        yield axios.post('/api/incident', action.payload)
     } catch (error) {
-        console.log('error in facts saga', error);
+        console.log('error in incident saga', error);
         alert('error', error)
 
     }

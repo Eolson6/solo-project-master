@@ -25,10 +25,11 @@ router.post('/', (req, res) => {
         const newVehicle = req.body;
         console.log('in vehicle post 1', newVehicle);
         const queryText = `INSERT INTO vehicle( "incident_id", "vehicle_make", "vehicle_year", 
-                        "vehicle_model", "license_plate", "VIN", "owner") 
-                        VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+                        "vehicle_model", "license_plate", "VIN", "owner", "notes", "insurance_company", "policy_number", "driver") 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`;
         pool.query(queryText, [newVehicle.incident_id, newVehicle.make, newVehicle.year, 
-            newVehicle.model, newVehicle.license, newVehicle.vin, newVehicle.owner])
+            newVehicle.model, newVehicle.license, newVehicle.vin, newVehicle.owner, newVehicle.notes, newVehicle.insurance_company,
+            newVehicle.policy_number, newVehicle.driver])
             .then((response) => {
                 res.sendStatus(201);
             }).catch((error) => {

@@ -3,18 +3,23 @@ CREATE TABLE "person" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
-
-CREATE TABLE "facts" (
+CREATE TABLE "incident" (
 "id" SERIAL PRIMARY KEY,
-"location" 	VARCHAR (100) NOT NULL,
-"type" VARCHAR (50) NOT NULL,
-"time" time NOT NULL,
-"date" date NOT NULL,
-"notes" VARCHAR (50)
+"incident_type" VARCHAR,
+"location_type" VARCHAR (100),
+"time" VARCHAR (50),
+"notes" VARCHAR,
+"date" date,
+"street" VARCHAR,
+"city" VARCHAR,
+"state" VARCHAR,
+"person_id" VARCHAR,
+"zip_code" VARCHAR
 );
 
-INSERT INTO facts ("id", "location", "type", "time", "date", "notes")
-VALUES ('1', 'Edina', 'intersection', '2:30', '01-12-2019', '2 cars');
+
+INSERT INTO incident ("id", "incident_type", "location_type", "time", "date", "notes", "street", "city", "state", "person.id")
+VALUES ('1', 'vehicle','intersection', '2:30', '01-12-2019', '2 cars', '123 BLVD', 'edina', 'minnesota', '1');
 
 CREATE TABLE "vehicle" (
 "id" SERIAL PRIMARY KEY,
@@ -27,9 +32,8 @@ CREATE TABLE "vehicle" (
 "owner" varchar (30) NOT NULL
 );
 
-INSERT INTO vehicle ("id", "incident.id", "vehicle_make", "vehicle_year", "vehicle_model", "license_plate", "VIN", "owner")
-VALUES('1', '1', 'JEEP', '2016', 'Compass', 'ASK392', '29ANKD9283', 'John Snow');
-
+INSERT INTO incident ("id", "incident_type", "location_type", "time", "date", "notes", "street", "city", "state", "person_id", "zip_code")
+VALUES ('1', 'vehicle','intersection', '2:30', '01-12-2019', '2 cars', '123 BLVD', 'edina', 'minnesota', '1', '49348);
 CREATE TABLE "witnesses" (
 "id" SERIAL PRIMARY KEY,
 "incident.id" integer UNIQUE NOT NULL,
@@ -42,8 +46,8 @@ CREATE TABLE "witnesses" (
 "zip" varchar (6) NOT NULL
 );
 
-INSERT INTO witnesses ("id", "incident.id", "name", "phone_number", "street", "unit", "city", "state", "zip")
-VALUES ('1', '1', 'Christian Laettner', '298-393-3029', '324 N blvd', '', 'Edina', 'MN', '55435');
+INSERT INTO incident ("id", "incident_type", "location_type", "time", "date", "notes", "street", "city", "state", "person_id", "zip_code")
+VALUES ('1', 'vehicle','intersection', '2:30', '01-12-2019', '2 cars', '123 BLVD', 'edina', 'minnesota', '1', '49348');
 
 CREATE TABLE "image" (
 "id" SERIAL PRIMARY KEY,

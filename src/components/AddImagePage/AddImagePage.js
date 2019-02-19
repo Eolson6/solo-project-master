@@ -7,19 +7,37 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import NumberFormat from 'react-number-format';
+import { get } from 'http';
+import NewIncidentPage from '../NewIncidentPage/NewIncidentPage';
 
 
 class AddImagePage extends Component {
 
+    componentDidMount(){
+            this.getCurrentId();
+    }
+
+    getCurrentId = () => {
+        const action = { type: 'GET_CURRENT_ID_SAGA' };
+        this.props.dispatch(action);
+        console.log('get id', action);
+
+
+    }
+
     addNewImage = (event) => {
         const newImage = {
             image_path: this.state.image_path,
-            image_description: this.state.image_description
+            image_description: this.state.image_description,
+            incident_id: [this.props.reduxState.getIdReducer]
         }
         const action = { type: 'ADD_NEW_IMAGE', payload: newImage };
         this.props.dispatch(action);
         this.props.history.push('newIncident')
     } 
+
+
+  
      
     
 
@@ -35,7 +53,8 @@ class AddImagePage extends Component {
     state = {
        
         image_path: '',
-        image_description: ''
+        image_description: '',
+        
     };
 
     handleChange = image_path => event => {
@@ -78,7 +97,8 @@ class AddImagePage extends Component {
                     <Button onClick={this.addNewImage} variant="outlined" color="primary" className="button" Link to="/newIncident">
                         Submit
                     </Button>
-                
+
+                {JSON.stringify(this.props.reduxState.getIdReducer)}
 
             </ form >
 
@@ -86,8 +106,8 @@ class AddImagePage extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
 });
 
-export default connect(mapStateToProps)(AddImagePage);
+export default connect(mapReduxStateToProps)(AddImagePage);

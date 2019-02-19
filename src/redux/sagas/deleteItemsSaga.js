@@ -56,19 +56,19 @@ function* deleteWitness(action) {
 }
 
 function* deleteFact(action) {
-    console.log('action.payload delete fact', action.payload);
+    console.log('action.payload delete incident', action.payload);
     const id = action.payload
-    console.log('in fact', id);
+    console.log('in incident', id);
 
     try {
         //updated next actin type from SET to GET- also updated what
         //was being sent
-        yield axios.delete(`/api/facts/${action.payload}`)
-        const nextAction = { type: 'GET_FACTS' };
+        yield axios.delete(`/api/incident/${action.payload}`)
+        const nextAction = { type: 'GET_INCIDENT' };
         yield put(nextAction);
     } catch (error) {
-        console.log('error in fact witness', error);
-        alert('error in fact witness')
+        console.log('error in incident witness', error);
+        alert('error in incident witness')
     }
 }
 
@@ -76,7 +76,7 @@ function* deleteItemsSaga() {
     yield takeLatest('DELETE_VEHICLE', deleteVehicle);
     yield takeLatest('DELETE_IMAGE', deleteImage);
     yield takeLatest('DELETE_WITNESS', deleteWitness);
-    yield takeLatest('DELETE_FACTS', deleteFact);
+    yield takeLatest('DELETE_INCIDENT', deleteFact);
   
 }
 
