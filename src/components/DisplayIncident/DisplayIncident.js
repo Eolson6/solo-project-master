@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+
 class DisplayIncident extends Component {
 
     constructor(props) {
@@ -35,20 +36,21 @@ class DisplayIncident extends Component {
         this.props.dispatch(action)   
     };
 
-    openIncident = (event) => {
-        console.log('in open incident', this.props.incident);
-        this.setState({
-            id: event.target.value
+    // openIncident = (event) => {
+    //     console.log('in open incident', this.props.incident);
+    //     this.setState({
+    //         id: event.target.value
 
-        });
-        const action = { type: 'OPEN_INCIDENT', payload: event.target.value }
-        this.props.dispatch(action)
-    };
+    //     });
+    //     const action = { type: 'OPEN_INCIDENT', payload: event.target.value }
+    //     this.props.dispatch(action)
+    // };
 
 
-    // openIncident = () => {
-    //     this.props.history.push('/incident');
-    // }
+    openIncident = () => {
+        this.props.history.push('incident');
+        
+    }
 
 
 
@@ -85,9 +87,8 @@ class DisplayIncident extends Component {
                         <td><button className="button-delete" onClick={this.deleteIncident} value={incident.id}>
                             Delete incident
                                         </button></td>
-                        <td><button className="button-delete" onClick={this.openIncident} value={incident.id}>
-                            Open incident
-                                        </button></td>
+                        <td>
+                                            <a class="btn btn-primary btn-lg btn-spl" href={"http://localhost:3000/NewIncidentPage#/incident"} role="button">Open</a></td>
                     </tr>
                     )
                 })}

@@ -4,6 +4,20 @@ import { connect } from 'react-redux';
 
 class IncidentInput extends Component {
 
+    componentDidMount(){
+        this.state={isEditing: false};
+        this.getIncident();
+
+
+    }
+
+    getIncident = () => {
+        const action = { type: 'GET_INCIDENT' };
+        this.props.dispatch(action);
+        console.log('action', action);
+
+
+    }
     createIncident = () => {
      
         const action = { type: 'ADD_NEW_INCIDENT', payload: this.state };
@@ -101,38 +115,48 @@ class IncidentInput extends Component {
     };
  
     render() {
-        
+     
         return (
 
+            
+                
+
             <form>
-                <input type="text" id="incident_type" value={this.state.value} onChange={this.handleIncidentChange} placeholder="Incident Type" />
+                            {this.props.reduxStore.incidentReducer.incidentReducer.map((incident, i) => {
+                                return (<tr key={i}>
+
+                <input type="text" id="incident_type" defaultValue={incident.incident_type} value={this.state.value} onChange={this.handleIncidentChange} placeholder="Incident Type" />
                 <br />
-                <input type="text" id="location_type" value={this.state.value} onChange={this.handleTypeChange} placeholder="Location Type" />
+                <input type="text" id="location_type" defaultValue={incident.location_type} value={this.state.value} onChange={this.handleTypeChange} placeholder="Location Type" />
                 <br />
-                <input type="text" id="street" value={this.state.value} onChange={this.handleStreetChange} placeholder="Street" />
+                <input type="text" id="street" defaultValue={incident.street} value={this.state.value} onChange={this.handleStreetChange} placeholder="Street" />
                 <br />
-                <input type="text" id="city" value={this.state.value} onChange={this.handleCityChange} placeholder="City" />
+                <input type="text" id="city" defaultValue={incident.city} value={this.state.value} onChange={this.handleCityChange} placeholder="City" />
                 <br />
 
-                <input type="text" id="state" value={this.state.value} onChange={this.handleStateChange} placeholder="State" />
+                <input type="text" id="state" defaultValue={incident.state} value={this.state.value} onChange={this.handleStateChange} placeholder="State" />
                 <br />
-                <input type="text" id="zip_code" value={this.state.value} onChange={this.handleZipChange} placeholder="Zip Code" />
+                <input type="text" id="zip_code" defaultValue={incident.zip_code} value={this.state.value} onChange={this.handleZipChange} placeholder="Zip Code" />
                 <br />
-                <input type="text" id="time" value={this.state.value} onChange={this.handleTimeChange} placeholder="Time" />
+                <input type="text" id="time" defaultValue={incident.time} value={this.state.value} onChange={this.handleTimeChange} placeholder="Time" />
                 <br />
 
-                <input type="text" id="Date" value={this.state.value} onChange={this.handleDateChange} placeholder="Date" />
+                <input type="text" id="date" defaultValue={incident.date} value={this.state.value} onChange={this.handleDateChange} placeholder="Date" />
                 <br />
-                <input type="text" id="Notes" value={this.state.value} onChange={this.handleNotesChange} placeholder="Notes" />
+                <input type="text" id="notes" defaultValue={incident.notes} value={this.state.value} onChange={this.handleNotesChange} placeholder="Notes" />
                 <br />
 
 
                 <button class="button-complete" onClick={this.createIncident} Link to="/newIncident">
                     Submit
                      </button>
-
+                                </tr>
+                                )
+                            })
+                }
 
             </form> 
+                    
 
 
 
@@ -140,8 +164,7 @@ class IncidentInput extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = (reduxStore) => ({
+    reduxStore
 });
-
 export default connect(mapStateToProps)(IncidentInput);
