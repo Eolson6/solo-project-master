@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class IncidentInput extends Component {
 
     componentDidMount(){
-        this.state={isEditing: false};
         this.getIncident();
 
 
@@ -22,7 +21,7 @@ class IncidentInput extends Component {
      
         const action = { type: 'ADD_NEW_INCIDENT', payload: this.state };
         this.props.dispatch(action);
-        this.props.history.push('newIncident')
+        this.props.history.push('home')
       
 }
 
@@ -125,29 +124,29 @@ class IncidentInput extends Component {
                             {this.props.reduxStore.incidentReducer.incidentReducer.map((incident, i) => {
                                 return (<tr key={i}>
 
-                <input type="text" id="incident_type" defaultValue={incident.incident_type} value={this.state.value} onChange={this.handleIncidentChange} placeholder="Incident Type" />
+                <input type="text" id="incident_type"  value={this.state.value} onChange={this.handleIncidentChange} placeholder="Incident Type" />
                 <br />
-                <input type="text" id="location_type" defaultValue={incident.location_type} value={this.state.value} onChange={this.handleTypeChange} placeholder="Location Type" />
+                <input type="text" id="location_type" value={this.state.value} onChange={this.handleTypeChange} placeholder="Location Type" />
                 <br />
-                <input type="text" id="street" defaultValue={incident.street} value={this.state.value} onChange={this.handleStreetChange} placeholder="Street" />
+                <input type="text" id="street"  value={this.state.value} onChange={this.handleStreetChange} placeholder="Street" />
                 <br />
-                <input type="text" id="city" defaultValue={incident.city} value={this.state.value} onChange={this.handleCityChange} placeholder="City" />
-                <br />
-
-                <input type="text" id="state" defaultValue={incident.state} value={this.state.value} onChange={this.handleStateChange} placeholder="State" />
-                <br />
-                <input type="text" id="zip_code" defaultValue={incident.zip_code} value={this.state.value} onChange={this.handleZipChange} placeholder="Zip Code" />
-                <br />
-                <input type="text" id="time" defaultValue={incident.time} value={this.state.value} onChange={this.handleTimeChange} placeholder="Time" />
+                <input type="text" id="city"  value={this.state.value} onChange={this.handleCityChange} placeholder="City" />
                 <br />
 
-                <input type="text" id="date" defaultValue={incident.date} value={this.state.value} onChange={this.handleDateChange} placeholder="Date" />
+                <input type="text" id="state" value={this.state.value} onChange={this.handleStateChange} placeholder="State" />
                 <br />
-                <input type="text" id="notes" defaultValue={incident.notes} value={this.state.value} onChange={this.handleNotesChange} placeholder="Notes" />
+                <input type="text" id="zip_code"  value={this.state.value} onChange={this.handleZipChange} placeholder="Zip Code" />
+                <br />
+                <input type="text" id="time" value={this.state.value} onChange={this.handleTimeChange} placeholder="Time" />
+                <br />
+
+                <input type="text" id="date" value={this.state.value} onChange={this.handleDateChange} placeholder="Date" />
+                <br />
+                <input type="text" id="notes" value={this.state.value} onChange={this.handleNotesChange} placeholder="Notes" />
                 <br />
 
 
-                <button class="button-complete" onClick={this.createIncident} Link to="/newIncident">
+                <button class="button-complete" onClick={this.createIncident} Link to="/home">
                     Submit
                      </button>
                                 </tr>

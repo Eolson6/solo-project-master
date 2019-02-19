@@ -33,7 +33,7 @@ class DisplayIncident extends Component {
 
         });
         const action = { type: 'DELETE_INCIDENT', payload: event.target.value }
-        this.props.dispatch(action)   
+        this.props.dispatch(action)
     };
 
     // openIncident = (event) => {
@@ -49,7 +49,7 @@ class DisplayIncident extends Component {
 
     openIncident = () => {
         this.props.history.push('incident');
-        
+
     }
 
 
@@ -60,38 +60,38 @@ class DisplayIncident extends Component {
         return (
             <div>
                 <table>
-                <thead>
-                    <tr>
-                        <th>Incident Type</th>
-                        <th>Location Type</th>
-                        <th>date</th>
-                        <th>time</th>
-                        <th>street</th>
-                        <th>city</th>
-                        <th>state</th>
-                        <th>zip code</th>
-                    </tr>
-                </thead>
-                <tbody>
+                    <thead>
+                        <tr>
+                            <th>Incident Type</th>
+                            <th>Location Type</th>
+                            <th>date</th>
+                            <th>time</th>
+                            <th>street</th>
+                            <th>city</th>
+                            <th>state</th>
+                            <th>zip code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                
-                {this.props.reduxStore.incidentReducer.incidentReducer.map((incident, i) => {
-                    return (<tr key={i}>
-                            <td>Incident Type: {incident.incident_type}</td>
-                            <td>Location Type: {incident.location_type}</td>
-                            
-                            <td>{incident.street}</td>
-                            <td>{incident.city},{incident.state}</td>
-                            <td>Notes:{incident.notes}</td>
-                   
-                        <td><button className="button-delete" onClick={this.deleteIncident} value={incident.id}>
-                            Delete incident
+
+                        {this.props.reduxStore.incidentReducer.incidentReducer.map((incident, i) => {
+                            return (<tr key={i}>
+                                <td>Incident Type: {incident.incident_type}</td>
+                                <td>Location Type: {incident.location_type}</td>
+
+                                <td>{incident.street}</td>
+                                <td>{incident.city},{incident.state}</td>
+                                <td>Notes:{incident.notes}</td>
+
+                                <td><button className="button-delete" onClick={this.deleteIncident} value={incident.id}>
+                                    Delete incident
                                         </button></td>
-                        <td>
-                                            <a class="btn btn-primary btn-lg btn-spl" href={"http://localhost:3000/NewIncidentPage#/incident"} role="button">Open</a></td>
-                    </tr>
-                    )
-                })}
+                                <td>
+                                    <a class="btn btn-primary btn-lg btn-spl" href={"http://localhost:3000/updateincident#/updateincident"} role="button">Open</a></td>
+                            </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
                 {/* <button class="button-add" onClick={this.goToAddNewFact} Link to="/incident">
